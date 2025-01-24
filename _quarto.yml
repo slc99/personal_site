@@ -3,12 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "website"
+  title: "Liam's Awesome Place of Coolness"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - test_tab.qmd
 
 format:
   html:
@@ -18,5 +19,6 @@ format:
     css: styles.css
     toc: true
 
-
+resources:
+  - CNAME
 
