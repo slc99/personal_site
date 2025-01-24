@@ -1,16 +1,23 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "website",
+    "objectID": "test_tab.html",
+    "href": "test_tab.html",
+    "title": "Test Tab",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Ayo"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Its a me, Mario! Also does this render? \\(\\delta\\)"
+    "text": "Its a me, Mario! Also does this render? \\(\\delta\\) Apparently not.\nThi is weird and I am not sure why I had to jump through so many hoops – lets try this again."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "website",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]
