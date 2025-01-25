@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "Liam Connor's Personal Website"
+  title: Liam Connor
   favicon: images/favicon.png
-  site-url: https://www.liamgconnor.com
+  # site-url: https://www.liamgconnor.com
   description: "Liam Connor's personal website. Projects, musing, resume, and more"
   navbar:
     logo: images/logo.png
@@ -15,14 +15,14 @@ website:
     title: False
     left:
       - href: index.qmd
-        text: About me
+        text: About Me
       - href: projects/index.qmd
         text: Projects
     right:
       - icon: envelope
         target: _blank
         aria-label: email
-        href: "mailto:fake@outlook.com"
+        href: "mailto:my_email_is:firstname.lastname@duke.edu"
       - icon: linkedin
         aria-label: linkedin
         href: https://www.linkedin.com/in/liam-g-connor/
@@ -38,7 +38,7 @@ website:
   page-footer:
     border: true
     left: |
-      Published with [{{< iconify simple-icons quarto size=small >}}](https://quarto.org/) | Hosted by [{{< iconify simple-icons github >}}](https://pages.github.com/)
+      Powered by [{{< iconify simple-icons quarto size=small >}}](https://quarto.org/) | Hosted with [{{< iconify simple-icons github >}}](https://pages.github.com/)
     right: |
       © 2025 [Liam Connor](/index.qmd) | [MIT License](/license.qmd)
 

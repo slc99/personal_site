@@ -1,7 +1,7 @@
 ---
 title: "An Infinite Number of Monkeys"
 date: "2023-02-24"
-categories: [R, web scraping, quantile regression, linear regression, rolling join, special effects]
+categories: [web scraping, quantile regression, linear regression, rolling join, special effects]
 description: "Quantile regression, property sales and anything could happen eventually"
 # bibliography: references.bib
 ---

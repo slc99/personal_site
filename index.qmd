@@ -15,7 +15,7 @@ about:
     - icon: envelope
       target: _blank
       aria-label: email
-      href: "mailto:fake@outlook.com"
+      href: "mailto:my_email_is:firstname.lastname@duke.edu"
     - icon: linkedin
       aria-label: linkedin
       href: https://www.linkedin.com/in/liam-g-connor/
@@ -23,50 +23,71 @@ about:
 ---
 
 ::: {#intro-blurb}
-This is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I think
+I aspire to work with others on intersting problems.
 :::
 
 ## Education
-##### Wengo Analytics | Head Data Scientist | April 2018 - present
+##### Duke University | M.S. in Economics and Computer Science | May 2026 (*Expected*)
+- Coursework in deep learning, natural language processing, and machine learning.
+-	Recipient of the Master’s Scholar Award, a merit-based tuition scholarship.
+
+##### Seattle University | B.S. in Mathematics, B.A. in Economics, Third Major Philosophy | December 2022
+- *Summa Cum Laude*, 
+- University Honors Program core curriculum focused on policy analysis.
+- Two degrees, three majors across three schools.
+<!-- (*Albers School of Business & Economics, College of Arts & Sciences, College of Science & Engineering*) -->
+
+## Experience
+#####  Analyst, Strategy and Analytics | DaVita | April 2023 - July 2024
 -	Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
 -	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
 -	Automated a key financial modeling process, saving 300+ labor hours per year.
 -	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
 
-## Experience
-##### Wengo Analytics | Head Data Scientist | April 2018 - present
--	Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
--	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
--	Automated a key financial modeling process, saving 300+ labor hours per year.
--	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
+##### Economics Research Assistant | Seattle University | March 2021 - December 2022
+- Applied causal discovery algorithms to social science datasets. Led initial research by identifying algorithms, processing data, and developing reusable Python code.
+- Supported research on policing and asset forfeiture by conducting exploratory data analysis on a novel US crime database. Used R for data analysis.
+
+## Leadership
+##### Redwoods Leadership Development Program | DaVita | September 2023 - June 2024
+- Selected as one of three internal analysts to join the 2024 Redwoods cohort.
+- Training for business excellence through case studies, leadership training, probably more that I forgot about. FIX ME
+
+##### Men's Crew President | Seattle University | September 2020 - June 2022
+- Managed a 20-person team. Led recruitment, planned competitions, hired coaches, rented boathouse space, built a collaborative team culture, and steered club direction. 
+- Launched new fundraisers and secured the club’s largest-ever budget.
+
+##### Outdoor Recreaction Trip Guide | Definitly Some year here
+- Oh yeah! We went all over the place FIX ME
 
 
 :::: {.grid}
 
 ::: {.g-col-12 .g-col-md-8 style="text-align: left;"}
-## Skills
-
-- **_Ph.D._ in Biostatistics**, **2017**  
-  *University of Lille, France*
-
-- **_M.Sc._ in Biostatistics, Bioinformatics and Genomics** (*Specialised in Biostatistics*), **2011**  
-  *University Claude Bernard Lyon 1, France*
-
-- **_B.Sc._ in Biology** (*Specialised in Biostatistics*), **2009**  
-  *University Claude Bernard Lyon 1, France*
+## Awards
+- **Rookie of the Year (2024)**: Awarded to the top-performing first-year analyst on the DaVita Payor Partnerships team.
+- **Reichmann Award (2022)**: Honors a graduating philosophy department student for academic excellence. Determined by faculty decision and GPA.
+- **Alpha Sigma Nu Honor Society (2020)**:
+- **Omicron Delta Epsilon Economics Honor Sociey (2020)**:
+- **ACRA All-American (2019)**: Awarded 
+- **ACRA V4+ National Champions (2019)**: 
 :::
 
 ::: {.g-col-12 .g-col-md-4 style="text-align: left;"}
-## Interests
-
-- Watching Movies
-- Quarto
-- Multi-omics
-- Longitudinal Data
-- Data Analysis
-- Data Visualisation
-- Knowledge Sharing
-- Learning New Skills
+## Technical Skills
+- Python (*Pandas, NumPy, PyTorch, scikit-learn, matplotlib, plotly, seaborn*)
+- SQL
+- Oracle DB
+- Tableau
+- R
+- Excel, PowerPoint
 :::
 
 ::::
+
+## Personal Interests
+- Games
+- Rowing
+- Skiing
+- Digging holes
+- Probably other stuff

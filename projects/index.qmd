@@ -1,6 +1,6 @@
 ---
-title: "Little Projects"
-subtitle: "With the [tidyverse](https://www.tidyverse.org) and [tidymodels](https://www.tidymodels.org) at their"
+title: Projects and Posts
+subtitle: Things I find interesting
 listing:
   id: listing
   contents: .

@@ -60,41 +60,83 @@
     "href": "index.html",
     "title": "Liam Connor",
     "section": "",
-    "text": "This is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I think"
+    "text": "I aspire to work on interesting problems with others."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Liam Connor",
     "section": "Education",
-    "text": "Education\n\nWengo Analytics | Head Data Scientist | April 2018 - present\n\nProvided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations.\nDeveloped an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.\nAutomated a key financial modeling process, saving 300+ labor hours per year.\nRecognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program."
+    "text": "Education\n\nDuke University | M.S. in Economics and Computer Science | May 2026 (Expected)\n\nRecipient of the Master’s Scholar Award, a merit-based tuition scholarship.\nCoursework in deep learning, natural language processing, and machine learning.\n\n\n\nSeattle University | B.S. in Mathematics, B.A. in Economics, Third Major Philosophy | December 2022\n\nSumma Cum Laude,\nUniversity Honors Program core curriculum focused on policy analysis.\nTwo degrees, three majors across three schools."
   },
   {
     "objectID": "index.html#experience",
     "href": "index.html#experience",
     "title": "Liam Connor",
     "section": "Experience",
-    "text": "Experience\n\nWengo Analytics | Head Data Scientist | April 2018 - present\n\nProvided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations.\nDeveloped an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.\nAutomated a key financial modeling process, saving 300+ labor hours per year.\nRecognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program."
+    "text": "Experience\n\nAnalyst, Strategy and Analytics | DaVita | April 2023 - July 2024\n\nProvided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations.\nDeveloped an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.\nAutomated a key financial modeling process, saving 300+ labor hours per year.\nRecognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.\n\n\n\nEconomics Research Assistant | Seattle University | March 2021 - December 2022\n\nApplied causal discovery algorithms to social science datasets. Led initial research by identifying algorithms, processing data, and developing reusable Python code.\nSupported research on policing and asset forfeiture by conducting exploratory data analysis on a novel US crime database. Used R for data analysis."
   },
   {
     "objectID": "index.html#skills",
     "href": "index.html#skills",
     "title": "Liam Connor",
     "section": "Skills",
-    "text": "Skills\n\nPh.D. in Biostatistics, 2017\nUniversity of Lille, France\nM.Sc. in Biostatistics, Bioinformatics and Genomics (Specialised in Biostatistics), 2011\nUniversity Claude Bernard Lyon 1, France\nB.Sc. in Biology (Specialised in Biostatistics), 2009\nUniversity Claude Bernard Lyon 1, France"
+    "text": "Skills\n\nPython (packages: )\n\nPandas\nNumPy\nPyTorch\nscikit-learn\nmatplotlib, plotly, seaborn\n\nSQL\nOracle DB\nTableau\nR"
   },
   {
     "objectID": "index.html#interests",
     "href": "index.html#interests",
     "title": "Liam Connor",
     "section": "Interests",
-    "text": "Interests\n\nWatching Movies\nQuarto\nMulti-omics\nLongitudinal Data\nData Analysis\nData Visualisation\nKnowledge Sharing\nLearning New Skills"
+    "text": "Interests\n\nGames\nRowing\nSkiing\nDigging holes\nProbably other stuff"
   },
   {
     "objectID": "projects/index.html",
     "href": "projects/index.html",
-    "title": "Little Projects",
+    "title": "Projects and Posts",
     "section": "",
     "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nAn Infinite Number of Monkeys\n\n\n1 min\n\n\nQuantile regression, property sales and anything could happen eventually\n\n\n\nFeb 24, 2023\n\n\n\n\n\nJan 25, 2025\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#leadership",
+    "href": "index.html#leadership",
+    "title": "Liam Connor",
+    "section": "Leadership",
+    "text": "Leadership\n\nRedwoods Leadership Development Program | DaVita | September 2023 - June 2024\n\nSelected as one of three internal analysts to join the 2024 Redwoods cohort.\nTraining for business excellence through case studies, leadership training, probably more that I forgot about. FIX ME\n\n\n\nMen’s Crew President | Seattle University | September 2020 - June 2022\n\nManaged a 20-person team. Led recruitment, planned competitions, hired coaches, rented boathouse space, built a collaborative team culture, and steered club direction.\nLaunched new fundraisers and secured the club’s largest-ever budget.\n\n\n\nOutdoor Recreaction Trip Guide | Definitly Some year here\n\nOh yeah! We went all over the place FIX ME"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Liam Connor",
+    "section": "Projects",
+    "text": "Projects\n\nProject 1: Analyzed customer data to predict churn using scikit-learn.\nProject 2: Built interactive dashboards with Tableau for sales reporting.\nProject 3: Developed a machine learning pipeline using PyTorch and pandas."
+  },
+  {
+    "objectID": "index.html#technical-skills",
+    "href": "index.html#technical-skills",
+    "title": "Liam Connor",
+    "section": "Technical Skills",
+    "text": "Technical Skills\n\nPython (Pandas, NumPy, PyTorch, scikit-learn, matplotlib, plotly, seaborn)\nSQL\nOracle DB\nTableau\nR\nExcel, PowerPoint"
+  },
+  {
+    "objectID": "index.html#awards-recognitions",
+    "href": "index.html#awards-recognitions",
+    "title": "Liam Connor",
+    "section": "Awards & Recognitions",
+    "text": "Awards & Recognitions\n\nProject 1: Analyzed customer data to predict churn using scikit-learn.\nProject 2: Built interactive dashboards with Tableau for sales reporting.\nProject 3: Developed a machine learning pipeline using PyTorch and pandas."
+  },
+  {
+    "objectID": "index.html#awards",
+    "href": "index.html#awards",
+    "title": "Liam Connor",
+    "section": "Awards",
+    "text": "Awards\n\nRookie of the Year (2024): Awarded to the top-performing first-year analyst on the DaVita Payor Partnerships team.\nReichmann Award (2022): Honors a graduating philosophy department student for academic excellence. Determined by faculty decision and GPA.\nAlpha Sigma Nu Honor Society (2020):\nOmicron Delta Epsilon Economics Honor Sociey (2020):\nACRA All-American (2019): Awarded\nACRA V4+ National Champions (2019):"
+  },
+  {
+    "objectID": "index.html#personal-interests",
+    "href": "index.html#personal-interests",
+    "title": "Liam Connor",
+    "section": "Personal Interests",
+    "text": "Personal Interests\n\nGames\nRowing\nSkiing\nDigging holes\nProbably other stuff"
   }
 ]
