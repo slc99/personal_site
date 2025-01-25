@@ -28,5 +28,11 @@
   },
   "license.qmd": {
     "license.html": "6f654997"
+  },
+  "projects/index.qmd": {
+    "index.html": "45c4877a"
+  },
+  "projects/monkeys/index.qmd": {
+    "index.html": "05fdd744"
   }
 }

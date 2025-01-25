@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Liam Connor's Personal Website"
-  favicon: images/apple-touch-icon.png
+  favicon: images/favicon.png
   site-url: https://www.liamgconnor.com
   description: "Liam Connor's personal website. Projects, musing, resume, and more"
   navbar:
@@ -16,7 +16,7 @@ website:
     left:
       - href: index.qmd
         text: About me
-      - href: projects.qmd
+      - href: projects/index.qmd
         text: Projects
     right:
       - icon: envelope
@@ -28,18 +28,19 @@ website:
         href: https://www.linkedin.com/in/liam-g-connor/
         target: _blank
       - icon: github
-        target: _blank
         menu:
           - text: Website Code
             url:  https://github.com/slc99/personal_site
+            target: _blank
           - text: Report a Bug
             url:  https://github.com/slc/personal_site/issues
+            target: _blank
   page-footer:
     border: true
     left: |
       Published with [{{< iconify simple-icons quarto size=small >}}](https://quarto.org/) | Hosted by [{{< iconify simple-icons github >}}](https://pages.github.com/)
     right: |
-      © 2025 [Liam Connor](/index.qmd) | [MIT License](license.qmd)
+      © 2025 [Liam Connor](/index.qmd) | [MIT License](/license.qmd)
 
 format:
   html:
