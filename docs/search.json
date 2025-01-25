@@ -9,15 +9,92 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "Its a me, Mario! Also does this render? \\(\\delta\\) Apparently not.\nThi is weird and I am not sure why I had to jump through so many hoops – lets try this again."
+    "text": "Finley Malloc is the Chief Data Scientist at Wengo Analytics. When not innovating on data platforms, Finley enjoys spending time unicycling and playing with her pet iguana.\n\n\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011\n\n\n\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011\n\n\n\n\n\n\nUniversity of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011\n\n\n\nWengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Sept 2012 - April 2018"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "website",
+    "title": "About",
     "section": "",
-    "text": "This is a Quarto website. But it is also mine!\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).\n\n\nThis is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).\n\n\n\nThis is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\)."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "",
+    "text": "University of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About Me",
+    "section": "",
+    "text": "Wengo Analytics | Head Data Scientist | April 2018 - present\nGeoScynce | Chief Analyst | Sept 2012 - April 2018"
+  },
+  {
+    "objectID": "test_about.html",
+    "href": "test_about.html",
+    "title": "About",
+    "section": "",
+    "text": "Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results.\n\n\nNow this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results.\n\n\n\nNow this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results."
+  },
+  {
+    "objectID": "test_about.html#about-me",
+    "href": "test_about.html#about-me",
+    "title": "About",
+    "section": "",
+    "text": "Profile Photo\n\n\nFinley Malloc is the Chief Data Scientist at Wengo Analytics. When not innovating on data platforms, Finley enjoys spending time unicycling and playing with her pet iguana."
+  },
+  {
+    "objectID": "test_about.html#education",
+    "href": "test_about.html#education",
+    "title": "About",
+    "section": "",
+    "text": "Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results."
+  },
+  {
+    "objectID": "test_about.html#experience",
+    "href": "test_about.html#experience",
+    "title": "About",
+    "section": "",
+    "text": "Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results. Now this is a test of fake works and perhaps real results."
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "Liam Connor's Personal Website",
+    "section": "",
+    "text": "Finley Malloc is the Chief Data Scientist at Wengo Analytics. When not innovating on data platforms, Finley enjoys spending time unicycling and playing with her pet iguana."
+  },
+  {
+    "objectID": "about.html#education-1",
+    "href": "about.html#education-1",
+    "title": "About Me",
+    "section": "",
+    "text": "University of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011"
+  },
+  {
+    "objectID": "about.html#education-2",
+    "href": "about.html#education-2",
+    "title": "About Me",
+    "section": "",
+    "text": "University of California, San Diego | San Diego, CA PhD in Mathematics | Sept 2011 - June 2015\nMacalester College | St. Paul MA B.A in Economics | Sept 2007 - June 2011"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "About",
+    "section": "",
+    "text": "This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\)."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "About",
+    "section": "",
+    "text": "This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\).This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol \\(\\Phi\\)."
   }
 ]

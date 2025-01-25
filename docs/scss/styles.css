@@ -1,0 +1,30 @@
+/* css styles */
+
+/* Default behavior: Image floats to the left */
+.floating-image {
+    float: left;
+    max-width: 40%; /* Adjust as needed */
+    width: auto;
+    height: auto;
+    margin-right: 2rem; /* Space between image and content */
+  }
+
+  /* When the screen gets narrow (e.g., max-width: 768px), center the image */
+  @media (max-width: 768px) {
+    .floating-image {
+      float: none; /* Remove floating */
+      display: block; /* Make it a block-level element */
+      margin: 0 auto; /* Center it */
+      max-width: 40%; /* Make it responsive */
+    }
+  }
+h2 {
+  border-bottom: none;
+  padding-bottom: none;
+  text-decoration: underline;
+  text-underline-offset: .25rem;
+  text-decoration-thickness: 0.01rem;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  padding-top: 0rem;
+}
