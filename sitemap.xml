@@ -1,31 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.liamgconnor.com/test_tab.html</loc>
-    <lastmod>2025-01-24T17:17:08.694Z</lastmod>
+    <loc>https://www.liamgconnor.com/projects.html</loc>
+    <lastmod>2025-01-25T19:14:34.217Z</lastmod>
   </url>
   <url>
-    <loc>https://www.liamgconnor.com/projects/monkeys/index.html</loc>
-    <lastmod>2025-01-25T19:21:32.170Z</lastmod>
+    <loc>https://www.liamgconnor.com/projects/index.html</loc>
+    <lastmod>2025-01-25T21:58:44.050Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.liamgconnor.com/index.html</loc>
+    <lastmod>2025-01-25T21:55:50.150Z</lastmod>
   </url>
   <url>
     <loc>https://www.liamgconnor.com/license.html</loc>
     <lastmod>2025-01-25T18:58:03.524Z</lastmod>
   </url>
   <url>
-    <loc>https://www.liamgconnor.com/about.html</loc>
-    <lastmod>2025-01-25T18:55:35.879Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.liamgconnor.com/index.html</loc>
-    <lastmod>2025-01-25T18:59:16.233Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.liamgconnor.com/projects/index.html</loc>
-    <lastmod>2025-01-25T19:12:15.058Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.liamgconnor.com/projects.html</loc>
-    <lastmod>2025-01-25T19:14:34.217Z</lastmod>
+    <loc>https://www.liamgconnor.com/projects/monkeys/index.html</loc>
+    <lastmod>2025-01-25T21:59:00.282Z</lastmod>
   </url>
 </urlset>

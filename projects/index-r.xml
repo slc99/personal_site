@@ -5,34 +5,11 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Liam Connor&#39;s Personal Website</title>
+<title>Liam Connor</title>
 <link>https://www.liamgconnor.com/projects/#category=R</link>
 <atom:link href="https://www.liamgconnor.com/projects/index-r.xml" rel="self" type="application/rss+xml"/>
 <description>Liam Connor&#39;s personal website. Projects, musing, resume, and more</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 24 Feb 2023 05:00:00 GMT</lastBuildDate>
-<item>
-  <title>An Infinite Number of Monkeys</title>
-  <link>https://www.liamgconnor.com/projects/monkeys/</link>
-  <description><![CDATA[ 
-
-
-
-
-<p><img src="https://www.liamgconnor.com/projects/monkeys/feature.jpg" class="img-fluid" alt="A monkey with badge number 15 sits at a typewriter and types: 'To be. Or not to be. That is the gazornanplatt.'"></p>
-<p>This is entirely stolen, but I am glad it kinda works!!</p>
-
-
-
- ]]></description>
-  <category>R</category>
-  <category>web scraping</category>
-  <category>quantile regression</category>
-  <category>linear regression</category>
-  <category>rolling join</category>
-  <category>special effects</category>
-  <guid>https://www.liamgconnor.com/projects/monkeys/</guid>
-  <pubDate>Fri, 24 Feb 2023 05:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Sat, 25 Jan 2025 22:09:02 GMT</lastBuildDate>
 </channel>
 </rss>
