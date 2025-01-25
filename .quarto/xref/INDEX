@@ -10,5 +10,23 @@
   },
   "test_about.qmd": {
     "test_about.html": "4b354c63"
+  },
+  "projects.qmd": {
+    "projects.html": "0d3f217d"
+  },
+  "LICENSE.md": {
+    "LICENSE.html": "1e2ef814"
+  },
+  "docs/license.md": {
+    "license.html": "2a37fe17"
+  },
+  "LICENSE.qmd": {
+    "LICENSE.html": "518c364d"
+  },
+  "docs/license.qmd": {
+    "license.html": "f0b4e1f4"
+  },
+  "license.qmd": {
+    "license.html": "6f654997"
   }
 }

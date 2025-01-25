@@ -1,49 +1,12 @@
-/* css styles */
-
-/* Default behavior: Image floats to the left */
-.floating-image {
-    float: left;
-    max-width: 35%; /* Adjust as needed */
-    width: auto;
-    height: auto;
-    margin-right: 2rem; /* Space between image and content */
-    margin-bottom: 1rem;
-  }
-
-  /* When the screen gets narrow (e.g., max-width: 768px), center the image */
-  @media (max-width: 768px) {
-    .floating-image {
-      float: none; /* Remove floating */
-      display: block; /* Make it a block-level element */
-      margin: 0 auto; /* Center it */
-      max-width: 60%; /* Make it responsive */
-    }
-  }
 h2 {
-  border-bottom: none;
-  margin-bottom: 0rem;
-  margin-top: 0rem;
-  /* padding-bottom: 0rem; */
-  /* padding-bottom: none;
-  text-decoration: underline;
-  text-underline-offset: .25rem;
-  text-decoration-thickness: 0.01rem;
-  margin-bottom: 0rem;
-  margin-top: 0rem;
-  padding-top: 0rem; */
+    margin-top: 0rem;
+    margin-bottom: .5rem;
 }
+
 h5 {
-  text-decoration: underline;
-  font-weight: bolder;
-  text-underline-offset: .25rem;
-  text-decoration-thickness: 0.01rem;
+    font-weight: bold;
 }
 
-ul {
-  list-style-position: inside;
-  padding-left: 0rem;
+#title-block-header {
+    margin-block-end: 0rem;
 }
-
-/* body {
-  max-width: 1200px;
-} */

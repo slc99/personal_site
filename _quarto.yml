@@ -8,19 +8,17 @@ website:
   site-url: https://www.liamgconnor.com
   description: "Liam Connor's personal website. Projects, musing, resume, and more"
   navbar:
+    logo: images/logo.png
+    logo-alt: "LC"
     search: true
     background: primary
-    title: "Liam Connor"
+    title: False
     left:
       - href: index.qmd
         text: About me
       - href: projects.qmd
         text: Projects
     right:
-      - icon: github
-        aria-label: github
-        target: _blank
-        href: https://github.com/slc99
       - icon: envelope
         target: _blank
         aria-label: email
@@ -29,9 +27,19 @@ website:
         aria-label: linkedin
         href: https://www.linkedin.com/in/liam-g-connor/
         target: _blank
-  
-body-header: | 
-  This page brought to you by <https://example.com>
+      - icon: github
+        target: _blank
+        menu:
+          - text: Website Code
+            url:  https://github.com/slc99/personal_site
+          - text: Report a Bug
+            url:  https://github.com/slc/personal_site/issues
+  page-footer:
+    border: true
+    left: |
+      Published with [{{< iconify simple-icons quarto size=small >}}](https://quarto.org/) | Hosted by [{{< iconify simple-icons github >}}](https://pages.github.com/)
+    right: |
+      © 2025 [Liam Connor](/index.qmd) | [MIT License](license.qmd)
 
 format:
   html:
@@ -39,7 +47,6 @@ format:
       light: [flatly, scss/light.scss]
     css: scss/styles.css
     code-link: true
-    # link-external-icon: true
     link-external-newwindow: true
     smooth-scroll: true
     highlight-style: gruvbox

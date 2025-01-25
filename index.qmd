@@ -1,41 +1,72 @@
 ---
-pagetitle: about_me
-# author: "Liam Connor"
-format: html
-# page-layout: custom
-  # No Python execution required for static content
+title: Liam Connor
+subtitle: |
+  MS in Economics and Computer Science at Duke University
+image: images/portrait.jpg
+about:
+  id: intro-blurb
+  template: solana
+  image-shape: rounded
+  links:
+    - icon: github
+      aria-label: github
+      target: _blank
+      href: https://github.com/slc99
+    - icon: envelope
+      target: _blank
+      aria-label: email
+      href: "mailto:fake@outlook.com"
+    - icon: linkedin
+      aria-label: linkedin
+      href: https://www.linkedin.com/in/liam-g-connor/
+      target: _blank
 ---
-<!-- <div style="display: flex; align-items: flex-start; gap: 20px;">
-  <img src="images/portrait.jpg" alt="My Photo" style="width: 150px; border-radius: 10px;">
-</div> -->
 
-# About
-<hr>
-<!-- ![](images/portrait.jpg){fig-alt="A drawing of an elephant." fig-align="left" width=40em min-width=20em} -->
-<!-- <img src="images/portrait.jpg" alt="Photo" style="float: left; margin-right: 2em; margin-bottom: 2em; max-width: 20em; width: auto; height: auto;"> -->
+::: {#intro-blurb}
+This is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I thinkThis is where I write about my life I think
+:::
 
-![](images/portrait.jpg){.floating-image}
-
-This will me by my introduction.
+## Education
+##### Wengo Analytics | Head Data Scientist | April 2018 - present
+-	Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
+-	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
+-	Automated a key financial modeling process, saving 300+ labor hours per year.
+-	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
 
 ## Experience
-<hr style="margin: 0; padding: 0; margin-bottom:0.5rem; border: none; border-top: 1px solid #000;" />
-
-##### DaVita | Strategy and Analytics | April 2023 - July 2024
-- Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
+##### Wengo Analytics | Head Data Scientist | April 2018 - present
+-	Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
 -	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
 -	Automated a key financial modeling process, saving 300+ labor hours per year.
 -	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
 
-## Education 
-<hr style="margin: 0; padding: 0; margin-bottom: 0.5rem; border: none; border-top: 1px solid #000;" />
 
-##### Seattle University | BA Economics | April 2023 - July 2024
-- Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
--	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
--	Automated a key financial modeling process, saving 300+ labor hours per year.
--	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
+:::: {.grid}
 
-### Test for the third option
-see stuff below it! w
+::: {.g-col-12 .g-col-md-8 style="text-align: left;"}
+## Skills
 
+- **_Ph.D._ in Biostatistics**, **2017**  
+  *University of Lille, France*
+
+- **_M.Sc._ in Biostatistics, Bioinformatics and Genomics** (*Specialised in Biostatistics*), **2011**  
+  *University Claude Bernard Lyon 1, France*
+
+- **_B.Sc._ in Biology** (*Specialised in Biostatistics*), **2009**  
+  *University Claude Bernard Lyon 1, France*
+:::
+
+::: {.g-col-12 .g-col-md-4 style="text-align: left;"}
+## Interests
+
+- Watching Movies
+- Quarto
+- Multi-omics
+- Longitudinal Data
+- Data Analysis
+- Data Visualisation
+- Knowledge Sharing
+- Learning New Skills
+:::
+
+::::
