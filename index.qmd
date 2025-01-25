@@ -1,5 +1,5 @@
 ---
-pagetitle: about_me_test
+pagetitle: about_me
 # author: "Liam Connor"
 format: html
 # page-layout: custom
@@ -10,15 +10,32 @@ format: html
 </div> -->
 
 # About
+<hr>
 <!-- ![](images/portrait.jpg){fig-alt="A drawing of an elephant." fig-align="left" width=40em min-width=20em} -->
 <!-- <img src="images/portrait.jpg" alt="Photo" style="float: left; margin-right: 2em; margin-bottom: 2em; max-width: 20em; width: auto; height: auto;"> -->
 
 ![](images/portrait.jpg){.floating-image}
 
-This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$.This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$. 
+This will me by my introduction.
 
 ## Experience
-This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$. This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$. This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$. This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$.
+<hr style="margin: 0; padding: 0; margin-bottom:0.5rem; border: none; border-top: 1px solid #000;" />
+
+##### DaVita | Strategy and Analytics | April 2023 - July 2024
+- Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
+-	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
+-	Automated a key financial modeling process, saving 300+ labor hours per year.
+-	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
 
 ## Education 
-This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$. This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$. This is a fake sentence I am repeating to check formatting, featuring my favorite greek symbol $\Phi$.
+<hr style="margin: 0; padding: 0; margin-bottom: 0.5rem; border: none; border-top: 1px solid #000;" />
+
+##### Seattle University | BA Economics | April 2023 - July 2024
+- Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
+-	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
+-	Automated a key financial modeling process, saving 300+ labor hours per year.
+-	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
+
+### Test for the third option
+see stuff below it! w
+

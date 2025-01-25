@@ -89,22 +89,31 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">About me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About Me</span></a>
+    <a class="nav-link" href="./projects.qmd"> 
+<span class="menu-text">Projects</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./test_tab.html" aria-current="page"> 
-<span class="menu-text">Test Tab</span></a>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/slc99" target="_blank"> <i class="bi bi-github" role="img" aria-label="github">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./test_about.html"> 
-<span class="menu-text">About</span></a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:fake@outlook.com" target="_blank"> <i class="bi bi-envelope" role="img" aria-label="email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/liam-g-connor/" target="_blank"> <i class="bi bi-linkedin" role="img" aria-label="linkedin">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -254,8 +263,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           if (link.getAttribute("rel") === null) {
             link.setAttribute("rel", "noopener");
           }
-          // default icon
-          link.classList.add("external");
       }
     }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
