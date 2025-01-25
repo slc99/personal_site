@@ -10,7 +10,29 @@
 <atom:link href="https://www.liamgconnor.com/projects/index.xml" rel="self" type="application/rss+xml"/>
 <description>Liam Connor&#39;s personal website. Projects, musing, resume, and more</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Fri, 24 Feb 2023 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 16 Jan 2025 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Certainty in Kidney Exchange</title>
+  <link>https://www.liamgconnor.com/projects/kidney_certainty/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><img src="https://www.liamgconnor.com/projects/kidney_certainty/feature.png" class="img-fluid" alt="Nothing for now tbh"></p>
+<p>This is entirely stolen, but I am glad it kinda works!!</p>
+
+
+
+ ]]></description>
+  <category>kidney exchange</category>
+  <category>economics</category>
+  <category>healthcare</category>
+  <category>microeconomics</category>
+  <category>policy</category>
+  <guid>https://www.liamgconnor.com/projects/kidney_certainty/</guid>
+  <pubDate>Thu, 16 Jan 2025 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>An Infinite Number of Monkeys</title>
   <link>https://www.liamgconnor.com/projects/monkeys/</link>
