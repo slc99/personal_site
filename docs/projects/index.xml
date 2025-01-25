@@ -5,7 +5,7 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>Liam Connor&#39;s Personal Website</title>
+<title>Liam Connor</title>
 <link>https://www.liamgconnor.com/projects/</link>
 <atom:link href="https://www.liamgconnor.com/projects/index.xml" rel="self" type="application/rss+xml"/>
 <description>Liam Connor&#39;s personal website. Projects, musing, resume, and more</description>
@@ -25,7 +25,6 @@
 
 
  ]]></description>
-  <category>R</category>
   <category>web scraping</category>
   <category>quantile regression</category>
   <category>linear regression</category>

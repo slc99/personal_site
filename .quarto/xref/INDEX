@@ -34,5 +34,8 @@
   },
   "projects/monkeys/index.qmd": {
     "index.html": "05fdd744"
+  },
+  "projects/kidney_certainty/index.qmd": {
+    "index.html": "752737e9"
   }
 }

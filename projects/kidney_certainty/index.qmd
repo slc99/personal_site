@@ -1,0 +1,12 @@
+---
+title: "Certainty in Kidney Exchange"
+date: "2025-01-16"
+categories: [kidney exchange, economics, healthcare, microeconomics, policy]
+description: "What certainty is needed to reccomend a kidney transplant?"
+# bibliography: references.bib
+---
+
+![](feature.png){fig-alt="Nothing for now tbh"}
+
+This is entirely stolen, but I am glad it kinda works!!
+
