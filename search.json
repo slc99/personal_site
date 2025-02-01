@@ -1,24 +1,24 @@
 [
   {
-    "objectID": "projects/kidney_certainty/index.html",
-    "href": "projects/kidney_certainty/index.html",
-    "title": "Certainty in Kidney Exchange",
+    "objectID": "projects/monkeys/index.html",
+    "href": "projects/monkeys/index.html",
+    "title": "An Infinite Number of Monkeys",
     "section": "",
     "text": "This is entirely stolen, but I am glad it kinda works!!"
   },
   {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects and Posts",
     "section": "",
-    "text": "Copyright 2025 Liam Connor\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nCertainty in Kidney Exchange\n\n\n1 min\n\n\nWhat certainty is needed to reccomend a kidney transplant?\n\n\n\nJan 16, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nThis is a test\n\n\n1 min\n\n\nDoes this work?\n\n\n\nJan 16, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nAn Infinite Number of Monkeys\n\n\n1 min\n\n\nQuantile regression, property sales and anything could happen eventually\n\n\n\nFeb 24, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGreat Salt Lake Policy Dashboard\n\n\n24 min\n\n\nHow policy decisions of today will effect the lake of tomorrow\n\n\n\nJan 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Liam Connor",
     "section": "",
-    "text": "I aspire to work with others on intersting problems."
+    "text": "I aspire to work with others on interesting problems."
   },
   {
     "objectID": "index.html#education",
@@ -63,17 +63,24 @@
     "text": "Personal Interests\n\nGames\nRowing\nSkiing\nDigging holes\nProbably other stuff"
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects and Posts",
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Updated - Oldest\n        \n         \n          Updated - Newest\n        \n     \n  \n\n\n\n\n\n\n\n\nCertainty in Kidney Exchange\n\n\n1 min\n\n\nWhat certainty is needed to reccomend a kidney transplant?\n\n\n\nJan 16, 2025\n\n\n\n\n\nJan 25, 2025\n\n\n\n\n\n\n\n\n\n\n\nAn Infinite Number of Monkeys\n\n\n1 min\n\n\nQuantile regression, property sales and anything could happen eventually\n\n\n\nFeb 24, 2023\n\n\n\n\n\nJan 25, 2025\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Copyright 2025 Liam Connor\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
   },
   {
-    "objectID": "projects/monkeys/index.html",
-    "href": "projects/monkeys/index.html",
-    "title": "An Infinite Number of Monkeys",
+    "objectID": "projects/kidney_certainty/index.html",
+    "href": "projects/kidney_certainty/index.html",
+    "title": "Certainty in Kidney Exchange",
     "section": "",
     "text": "This is entirely stolen, but I am glad it kinda works!!"
+  },
+  {
+    "objectID": "projects/test_post/test_notebook.html",
+    "href": "projects/test_post/test_notebook.html",
+    "title": "This is a test",
+    "section": "",
+    "text": "Big Leagues\nEveryone know my favorite number is\n\nTest $\\delta \\leq \\phi$ so there\n\n\n  Cell In[2], line 1\n    Test $\\delta \\leq \\phi$ so there\n         ^\nSyntaxError: invalid syntax"
   }
 ]

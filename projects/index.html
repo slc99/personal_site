@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-reading-time','listing-description','listing-file-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-title','listing-reading-time','listing-description','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
@@ -219,7 +219,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZWNvbm9taWNz">economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGVhbHRoY2FyZQ==">healthcare <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a2lkbmV5JTIwZXhjaGFuZ2U=">kidney exchange <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGluZWFyJTIwcmVncmVzc2lvbg==">linear regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWljcm9lY29ub21pY3M=">microeconomics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9saWN5">policy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhbnRpbGUlMjByZWdyZXNzaW9u">quantile regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm9sbGluZyUyMGpvaW4=">rolling join <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3BlY2lhbCUyMGVmZmVjdHM=">special effects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2ViJTIwc2NyYXBpbmc=">web scraping <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YXlv">ayo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZWNvbm9taWNz">economics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZW52aXJvbWVudA==">enviroment <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JlYXQlMjBzYWx0JTIwbGFrZQ==">great salt lake <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aGVhbHRoY2FyZQ==">healthcare <span class="quarto-category-count">(1)</span></div><div class="category" data-category="a2lkbmV5JTIwZXhjaGFuZ2U=">kidney exchange <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGFtYW8=">lamao <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGluZWFyJTIwcmVncmVzc2lvbg==">linear regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWljcm9lY29ub21pY3M=">microeconomics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWxpbmc=">modeling <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cG9saWN5">policy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHl0aG9u">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cXVhbnRpbGUlMjByZWdyZXNzaW9u">quantile regression <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm9sbGluZyUyMGpvaW4=">rolling join <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3BlY2lhbCUyMGVmZmVjdHM=">special effects <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2ViJTIwc2NyYXBpbmc=">web scraping <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -238,17 +238,14 @@ window.Quarto = {
      <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
        <option value="" disabled="" selected="" hidden="">Order By</option>
        <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
          <option value="listing-date-sort" data-direction="asc">
           Date - Oldest
         </option>
          <option value="listing-date-sort" data-direction="desc">
           Date - Newest
-        </option>
-         <option value="listing-file-modified-sort" data-direction="asc">
-          Updated - Oldest
-        </option>
-         <option value="listing-file-modified-sort" data-direction="desc">
-          Updated - Newest
         </option>
      </select>
   </div>
@@ -257,7 +254,7 @@ window.Quarto = {
 <div class="g-col-1" data-index="0" data-categories="a2lkbmV5JTIwZXhjaGFuZ2UlMkNlY29ub21pY3MlMkNoZWFsdGhjYXJlJTJDbWljcm9lY29ub21pY3MlMkNwb2xpY3k=" data-listing-date-sort="1737003600000" data-listing-file-modified-sort="1737843637634" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="14">
 <a href="../projects/kidney_certainty/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="kidney_certainty\feature.png" alt="Nothing for now tbh" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="kidney_certainty\feature.png" alt="Nothing for now tbh" style="height: 15rem;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Certainty in Kidney Exchange
@@ -274,18 +271,36 @@ Jan 16, 2025
 </div>
 </div>
 </div>
-<div class="card-footer">
-<div class="card-file-modified listing-file-modified">
-<p>Jan 25, 2025</p>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="YXlvJTJDbGFtYW8=" data-listing-date-sort="1737003600000" data-listing-file-modified-sort="1737996362112" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
+<a href="../projects/test_post/test_notebook.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 15rem;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+This is a test
+</h5>
+<div class="listing-reading-time card-text text-muted">
+1 min
+</div>
+<div class="card-text listing-description">
+Does this work?
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 16, 2025
+</div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="d2ViJTIwc2NyYXBpbmclMkNxdWFudGlsZSUyMHJlZ3Jlc3Npb24lMkNsaW5lYXIlMjByZWdyZXNzaW9uJTJDcm9sbGluZyUyMGpvaW4lMkNzcGVjaWFsJTIwZWZmZWN0cw==" data-listing-date-sort="1677214800000" data-listing-file-modified-sort="1737842340282" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
+<div class="g-col-1" data-index="2" data-categories="d2ViJTIwc2NyYXBpbmclMkNxdWFudGlsZSUyMHJlZ3Jlc3Npb24lMkNsaW5lYXIlMjByZWdyZXNzaW9uJTJDcm9sbGluZyUyMGpvaW4lMkNzcGVjaWFsJTIwZWZmZWN0cw==" data-listing-date-sort="1677214800000" data-listing-file-modified-sort="1737842340282" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
 <a href="../projects/monkeys/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="monkeys\feature.jpg" alt="A monkey with badge number 15 sits at a typewriter and types: 'To be. Or not to be. That is the gazornanplatt.'" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="monkeys\feature.jpg" alt="A monkey with badge number 15 sits at a typewriter and types: 'To be. Or not to be. That is the gazornanplatt.'" style="height: 15rem;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 An Infinite Number of Monkeys
@@ -302,9 +317,29 @@ Feb 24, 2023
 </div>
 </div>
 </div>
-<div class="card-footer">
-<div class="card-file-modified listing-file-modified">
-<p>Jan 25, 2025</p>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Z3JlYXQlMjBzYWx0JTIwbGFrZSUyQ3BvbGljeSUyQ2Vudmlyb21lbnQlMkNtb2RlbGluZyUyQ3B5dGhvbg==" data-listing-date-sort="1673845200000" data-listing-reading-time-sort="24">
+<a href="https://gsl-dashboard.onrender.com/" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="resources/gsl_animation.gif" class="thumbnail-image card-img" style="height: 15rem;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Great Salt Lake Policy Dashboard
+</h5>
+<div class="listing-reading-time card-text text-muted">
+24 min
+</div>
+<div class="card-text listing-description">
+How policy decisions of today will effect the lake of tomorrow
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Jan 16, 2023
+</div>
 </div>
 </div>
 </div>
