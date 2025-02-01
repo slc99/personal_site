@@ -1,6 +1,6 @@
 ---
-title: Projects and Posts
-subtitle: Things I find interesting
+title: Projects
+subtitle: School papers, porfolio projects, and things I find interesting
 listing:
   id: listing
   contents: 

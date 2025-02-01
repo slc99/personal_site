@@ -23,7 +23,7 @@ about:
 ---
 
 ::: {#intro-blurb}
-I aspire to work with others on interesting problems.
+I am a first-year economics and computer science master's student at Duke University. I aspire to work on challenging problems that have a postive social impact. I want to work in the intersection of working on challenging problems and working with other people. I have a strong record of success in both. I am currently looking for a Summer 2025 internship where I can continue my experience and learn some new stuff. Ugh, writing is hard.
 :::
 
 ## Education
@@ -32,33 +32,33 @@ I aspire to work with others on interesting problems.
 -	Recipient of the Master’s Scholar Award, a merit-based tuition scholarship.
 
 ##### Seattle University | B.S. in Mathematics, B.A. in Economics, Third Major Philosophy | December 2022
-- *Summa Cum Laude*, 
+- *Summa Cum Laude*, 3.9 GPA. 
 - University Honors Program core curriculum focused on policy analysis.
-- Two degrees, three majors across three schools.
-<!-- (*Albers School of Business & Economics, College of Arts & Sciences, College of Science & Engineering*) -->
+- Two degrees, three majors across three different schools. 
+<!-- ^[College of Science & Engineering, Albers School of Business & Economics, College of Arts & Sciences] -->
 
 ## Experience
 #####  Analyst, Strategy and Analytics | DaVita | April 2023 - July 2024
 -	Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
--	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B portfolio. Utilized Excel, Python, SQL, and Tableau.
+-	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B+ portfolio. Utilized Excel, Python, SQL, and Tableau.
 -	Automated a key financial modeling process, saving 300+ labor hours per year.
--	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership program.
+-	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership development program.
 
 ##### Economics Research Assistant | Seattle University | March 2021 - December 2022
 - Applied causal discovery algorithms to social science datasets. Led initial research by identifying algorithms, processing data, and developing reusable Python code.
 - Supported research on policing and asset forfeiture by conducting exploratory data analysis on a novel US crime database. Used R for data analysis.
 
-## Leadership
-##### Redwoods Leadership Development Program | DaVita | September 2023 - June 2024
-- Selected as one of three internal analysts to join the 2024 Redwoods cohort.
-- Training for business excellence through case studies, leadership training, probably more that I forgot about. FIX ME
-
 ##### Men's Crew President | Seattle University | September 2020 - June 2022
 - Managed a 20-person team. Led recruitment, planned competitions, hired coaches, rented boathouse space, built a collaborative team culture, and steered club direction. 
 - Launched new fundraisers and secured the club’s largest-ever budget.
 
-##### Outdoor Recreaction Trip Guide | Definitly Some year here
-- Oh yeah! We went all over the place FIX ME
+##### Economics Tutor & Teaching Assistant | Seattle Univeristy | September 2020 - June 2022
+- Tutored 20 students microeconomics, macroeconomics, and econometrics through the Seattle University Economics Department. 
+- Served as a teaching assistant for intermediate microeconomics.
+
+##### Outdoor Recreaction Trip Guide | Seattle University | September 2019 - September 2021
+- Planned, budgeted, and led outdoor trips for up to ten participants. 
+- Received over eighty hours of leadership training. 
 
 
 :::: {.grid}
@@ -67,27 +67,22 @@ I aspire to work with others on interesting problems.
 ## Awards
 - **Rookie of the Year (2024)**: Awarded to the top-performing first-year analyst on the DaVita Payor Partnerships team.
 - **Reichmann Award (2022)**: Honors a graduating philosophy department student for academic excellence. Determined by faculty decision and GPA.
-- **Alpha Sigma Nu Honor Society (2020)**:
-- **Omicron Delta Epsilon Economics Honor Sociey (2020)**:
-- **ACRA All-American (2019)**: Awarded 
-- **ACRA V4+ National Champions (2019)**: 
+- Member of **[Alpha Sigma Nu](https://www.alphasigmanu.org/)** and **[Omicron Delta Epsilon](https://www.omicrondeltaepsilon.org/)** honor societies.
+- **American Collegiate Rowing Freshman All-American (2019)**: Criteria included athletic performance and coach recommendation. 
 :::
 
 ::: {.g-col-12 .g-col-md-4 style="text-align: left;"}
 ## Technical Skills
 - Python (*Pandas, NumPy, PyTorch, scikit-learn, matplotlib, plotly, seaborn*)
-- SQL
-- Oracle DB
+- SQL (*Oracle DB*)
 - Tableau
 - R
-- Excel, PowerPoint
+- Excel
+- Econometrics, statistics, and machine learning
+- Economic modeling
 :::
 
 ::::
 
 ## Personal Interests
-- Games
-- Rowing
-- Skiing
-- Digging holes
-- Probably other stuff
+After a decade of rowing, I have recently gotten into cycling, running, and weighlifting. I enjoy all sorts of outdoor activites, such as hiking, biking, camping, climing, and especially skiing. I like to play board games, card games, and video games. I am an avid audiobook listener, especially of history books. I love traveling and seeing new places.
