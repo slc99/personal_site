@@ -5,8 +5,8 @@ project:
 website:
   title: Liam Connor
   favicon: images/favicon.png
-  # site-url: https://www.liamgconnor.com
-  description: "Liam Connor's personal website. Projects, musing, resume, and more"
+  site-url: https://www.liamgconnor.com
+  description: "Liam Connor's personal website."
   navbar:
     logo: images/logo.png
     logo-alt: "LC"

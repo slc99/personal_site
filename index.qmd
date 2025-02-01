@@ -23,7 +23,7 @@ about:
 ---
 
 ::: {#intro-blurb}
-I aspire to work with others on intersting problems.
+I aspire to work with others on interesting problems.
 :::
 
 ## Education

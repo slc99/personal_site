@@ -37,5 +37,14 @@
   },
   "projects/kidney_certainty/index.qmd": {
     "index.html": "752737e9"
+  },
+  "projects/gsl_dash/index.qmd": {
+    "index.html": "e48747d7"
+  },
+  "projects/gsl_dash_link/index.qmd": {
+    "index.html": "51cdc5de"
+  },
+  "projects/test_post/test_notebook.ipynb": {
+    "test_notebook.html": "1abf5801"
   }
 }

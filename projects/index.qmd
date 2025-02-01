@@ -3,19 +3,28 @@ title: Projects and Posts
 subtitle: Things I find interesting
 listing:
   id: listing
-  contents: .
-  fields: [image, date, title, reading-time, description, file-modified]
-  field-display-names:
-    file-modified: "Updated"
+  contents: 
+    # Not sure if there is a more elegant way to do it, but directly listing
+    # the GSL Dash in contents allows for an external link
+    - path: https://gsl-dashboard.onrender.com/
+      title: "Great Salt Lake Policy Dashboard"
+      image: resources/gsl_animation.gif
+      date: "2023-01-16"
+      reading-time: 24
+      categories: [great salt lake, policy, enviroment, modeling, python]
+      description: "How policy decisions of today will effect the lake of tomorrow"
+    - .
+
+  fields: [image, title, reading-time, description, date]
   sort: "date desc"
   type: grid
+  image-height: 15rem # set for GSL antimation formatting
   categories: numbered
-  sort-ui: [date, file-modified]
+  sort-ui: [title, date]
   filter-ui: false
   feed: 
-    categories: R
     items: 40
-  page-size: 40
+  page-size: 36
 page-layout: full
 title-block-banner: true
 comments: false
