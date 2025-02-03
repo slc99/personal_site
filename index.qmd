@@ -1,7 +1,7 @@
 ---
 title: Liam Connor
 subtitle: |
-  MS in Economics and Computer Science at Duke University
+  M.S. in Economics and Computer Science at Duke University
 image: images/portrait.jpg
 about:
   id: intro-blurb
@@ -23,7 +23,9 @@ about:
 ---
 
 ::: {#intro-blurb}
-I am a first-year economics and computer science master's student at Duke University. I aspire to work on challenging problems that have a postive social impact. I want to work in the intersection of working on challenging problems and working with other people. I have a strong record of success in both. I am currently looking for a Summer 2025 internship where I can continue my experience and learn some new stuff. Ugh, writing is hard.
+I aspire to work on challenging data science problems with a positive social impact. Please see my [**projects**](projects/index.qmd) for a sample of my work.
+
+I graduated from Seattle University with a triple major in Math, Economics, and Philosophy. I assisted in economics research and served as rowing team president. After graduating, I worked as an analyst at DaVita. There, I modeled complex multi-million dollar negotiations, automated and expanded team capabilities, and earned 'Rookie of the Year'. I am now earning an M.S. in Economics and Computer Science at Duke, a two-year, in-person program. 
 :::
 
 ## Education
@@ -31,58 +33,58 @@ I am a first-year economics and computer science master's student at Duke Univer
 - Coursework in deep learning, natural language processing, and machine learning.
 -	Recipient of the Master’s Scholar Award, a merit-based tuition scholarship.
 
-##### Seattle University | B.S. in Mathematics, B.A. in Economics, Third Major Philosophy | December 2022
+##### Seattle University | B.S. in Mathematics, B.A. in Economics, Third Major in Philosophy | December 2022
 - *Summa Cum Laude*, 3.9 GPA. 
-- University Honors Program core curriculum focused on policy analysis.
-- Two degrees, three majors across three different schools. 
+- University Honors Program curriculum focused on policy analysis.
+- Earned two degrees and three majors across three distinct schools.
 <!-- ^[College of Science & Engineering, Albers School of Business & Economics, College of Arts & Sciences] -->
 
 ## Experience
-#####  Analyst, Strategy and Analytics | DaVita | April 2023 - July 2024
+##### Analyst, Strategy and Analytics | DaVita | April 2023 - July 2024
 -	Provided analytical and strategic support for negotiating contracts valued in the hundreds of millions. Worked with finance and actuarial teams to model negotiations. 
--	Developed an algorithm to assess facility capacity and patient travel time, providing critical strategic insights into the entire $7B+ portfolio. Utilized Excel, Python, SQL, and Tableau.
--	Automated a key financial modeling process, saving 300+ labor hours per year.
--	Recognized as “Rookie of the Year”. Selected for and completed a yearlong leadership development program.
+-	Developed an algorithm to assess facility capacity and patient travel time, which provided critical strategic insights into the entire $7B+ portfolio. Utilized Excel, Python, SQL, and Tableau.
+-	Automated a key financial modeling process, saving over 300 labor hours annually.
+-	Recognized as 'Rookie of the Year'. Selected as one of three high-performing internal analysts for a yearlong leadership development program (completed June 2024).
 
-##### Economics Research Assistant | Seattle University | March 2021 - December 2022
+##### Research Assistant | Seattle University | March 2021 - December 2022
 - Applied causal discovery algorithms to social science datasets. Led initial research by identifying algorithms, processing data, and developing reusable Python code.
 - Supported research on policing and asset forfeiture by conducting exploratory data analysis on a novel US crime database. Used R for data analysis.
 
 ##### Men's Crew President | Seattle University | September 2020 - June 2022
-- Managed a 20-person team. Led recruitment, planned competitions, hired coaches, rented boathouse space, built a collaborative team culture, and steered club direction. 
+- Managed a 20-person team. Led recruitment, built a collaborative team culture, and steered club direction. 
 - Launched new fundraisers and secured the club’s largest-ever budget.
 
 ##### Economics Tutor & Teaching Assistant | Seattle Univeristy | September 2020 - June 2022
-- Tutored 20 students microeconomics, macroeconomics, and econometrics through the Seattle University Economics Department. 
+- Tutored 20 students in microeconomics, macroeconomics, and econometrics through the Seattle University Economics Department. 
 - Served as a teaching assistant for intermediate microeconomics.
 
-##### Outdoor Recreaction Trip Guide | Seattle University | September 2019 - September 2021
+<!-- ##### Outdoor Recreaction Trip Guide | Seattle University | September 2019 - September 2021
 - Planned, budgeted, and led outdoor trips for up to ten participants. 
-- Received over eighty hours of leadership training. 
+- Received over eighty hours of leadership training.  -->
 
 
 :::: {.grid}
 
 ::: {.g-col-12 .g-col-md-8 style="text-align: left;"}
 ## Awards
-- **Rookie of the Year (2024)**: Awarded to the top-performing first-year analyst on the DaVita Payor Partnerships team.
-- **Reichmann Award (2022)**: Honors a graduating philosophy department student for academic excellence. Determined by faculty decision and GPA.
-- Member of **[Alpha Sigma Nu](https://www.alphasigmanu.org/)** and **[Omicron Delta Epsilon](https://www.omicrondeltaepsilon.org/)** honor societies.
-- **American Collegiate Rowing Freshman All-American (2019)**: Criteria included athletic performance and coach recommendation. 
+- **Rookie of the Year (January 2024)**: Awarded to the top-performing first-year analyst on the DaVita Payor Partnerships team.
+- **Reichmann Award (June 2022)**: Honors a graduating philosophy department student for academic excellence, based on faculty evaluation and GPA.
+- Member of [**Alpha Sigma Nu**](https://www.alphasigmanu.org/) and [**Omicron Delta Epsilon**](https://www.omicrondeltaepsilon.org/) honor societies.
+- **American Collegiate Rowing All-American (May 2019)**: Criteria included athletic performance and coach recommendation. 
 :::
 
 ::: {.g-col-12 .g-col-md-4 style="text-align: left;"}
 ## Technical Skills
-- Python (*Pandas, NumPy, PyTorch, scikit-learn, matplotlib, plotly, seaborn*)
+- Python (*Pandas, NumPy, PyTorch, Scikit-learn, Matplotlib, Plotly, Seaborn*)
 - SQL (*Oracle DB*)
-- Tableau
-- R
-- Excel
 - Econometrics, statistics, and machine learning
 - Economic modeling
+- Tableau
+- Excel
+- R
 :::
 
 ::::
 
 ## Personal Interests
-After a decade of rowing, I have recently gotten into cycling, running, and weighlifting. I enjoy all sorts of outdoor activites, such as hiking, biking, camping, climing, and especially skiing. I like to play board games, card games, and video games. I am an avid audiobook listener, especially of history books. I love traveling and seeing new places.
+After a decade of rowing, I have recently started cycling, running, and weightlifting. I enjoy all sorts of outdoor activities, such as hiking, biking, camping, climbing, and especially skiing. I like to play board games, card games, and video games. I am an avid audiobook listener, particularly of history books. I love traveling and seeing new places.
