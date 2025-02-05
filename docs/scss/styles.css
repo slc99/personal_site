@@ -1,3 +1,5 @@
+/* I am not interested in pursuing webdev. All solutions are hacked together. */
+
 h2 {
     margin-top: 0rem;
     margin-bottom: .5rem;
@@ -14,3 +16,45 @@ h5 {
 ul {
     padding-left: 1.2rem;
 }
+
+.nav-link {
+    font-size: 1.2rem;
+    color: #313745;
+}
+
+.nav-link.active {
+    color: #313745 !important;
+}
+
+.nav-link:hover {
+    color: #181b22; 
+}
+
+
+nav .nav-item.compact .nav-link {
+    font-size: 1.2rem;
+    color: #313745;
+}
+.navbar-nav.me-auto .nav-link {
+    position: relative;
+    text-decoration: none;
+}
+
+.navbar-nav.me-auto .nav-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #181b22;
+    width: 0%;
+    content: "";
+    height: 2px;
+    transition: all .3s
+}
+
+.navbar-nav.me-auto .nav-link:hover::after {
+    width: 80%;
+    left: 0;
+}
+

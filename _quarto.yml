@@ -10,6 +10,7 @@ website:
   navbar:
     logo: images/logo.png
     logo-alt: "LC"
+    # pinned: True
     search: true
     background: primary
     title: False

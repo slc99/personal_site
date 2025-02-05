@@ -11,12 +11,13 @@ listing:
       image: resources/gsl_animation.gif
       date: "2023-01-16"
       reading-time: 24
-      categories: [great salt lake, policy, enviroment, modeling, python]
-      description: "How policy decisions of today will effect the lake of tomorrow"
+      categories: [great salt lake, policy, enviroment, data visualization, python]
+      description: "The Great Salt Lake is drying up. Why should we care, and what can we do about it?"
+      listing-order: 1
     - .
 
   fields: [image, title, reading-time, description, date]
-  sort: "date desc"
+  sort: "listing-order asc"
   type: grid
   image-height: 15rem # set for GSL antimation formatting
   categories: numbered
