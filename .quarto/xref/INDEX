@@ -46,5 +46,8 @@
   },
   "projects/test_post/test_notebook.ipynb": {
     "test_notebook.html": "1abf5801"
+  },
+  "courses.qmd": {
+    "courses.html": "5c6cf9c6"
   }
 }

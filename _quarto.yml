@@ -19,6 +19,8 @@ website:
         text: About Me
       - href: projects/index.qmd
         text: Projects
+      - href: courses.qmd
+        text: Courses
     right:
       - icon: envelope
         target: _blank

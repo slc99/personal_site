@@ -1,0 +1,25 @@
+---
+title: Courses
+format: html
+---
+<br>
+
+### Duke Univeristy
+- COMPSCI 590: Theory of Deep Learning
+- COMPSCI 571: Probabilistic Machine Learning
+- COMPSCI 572: Natural Language Processing
+- COMPSCI 531: Introduction to Algorithms
+- ECON 701: Microeconomic Analysis I
+- ECON 605: Advanced Microeconomic Analysis
+
+### Seattle University
+- ECON 4910: Causal Inference
+- ECON 4110: Applied Econometrics
+- MATH 3411: Probability
+- MATH 2340: Differential Equations
+- MATH 4440: Applied Fourier Analysis 
+- MATH 2320: Linear Algebra
+- MATH 4431: Intro to Real Analysis I
+- MATH 4432: Intro to Real Analysis II
+- ECON 4590: Market Power and Response
+- MATH 3910: Optimal Estimation and Control
