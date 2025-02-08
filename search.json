@@ -32,7 +32,7 @@
     "href": "index.html#awards",
     "title": "Liam Connor",
     "section": "Awards",
-    "text": "Awards\n\nRookie of the Year (January 2024): Awarded to the top-performing first-year analyst on the DaVita Payor Partnerships team.\nReichmann Award (June 2022): Honors a graduating philosophy department student for academic excellence, based on faculty evaluation and GPA.\nMember of Alpha Sigma Nu and Omicron Delta Epsilon honor societies.\nAmerican Collegiate Rowing All-American (May 2019): Criteria included athletic performance and coach recommendation."
+    "text": "Awards\n\nRookie of the Year (January 2024): Awarded to the top-performing first-year analyst on the DaVita Payor Partnerships team.\nReichmann Award (June 2022): Honors a graduating philosophy department student for academic excellence, based on faculty evaluation and GPA.\nAmerican Collegiate Rowing All-American (May 2019): Criteria included athletic performance and coach recommendation.\nMember of Alpha Sigma Nu and Omicron Delta Epsilon honor societies."
   },
   {
     "objectID": "index.html#technical-skills",
@@ -47,6 +47,13 @@
     "title": "Liam Connor",
     "section": "Personal Interests",
     "text": "Personal Interests\nAfter a decade of rowing, I have recently started cycling and running. I enjoy all sorts of outdoor activities, such as hiking, biking, camping, and especially skiing. I like to play board games, card games, and video games. I am an avid audiobook listener, particularly of history books. I love traveling and seeing new places."
+  },
+  {
+    "objectID": "courses.html",
+    "href": "courses.html",
+    "title": "Courses",
+    "section": "",
+    "text": "Duke Univeristy\n\nCOMPSCI 590: Theory of Deep Learning\nCOMPSCI 571: Probabilistic Machine Learning\nCOMPSCI 572: Natural Language Processing\nCOMPSCI 531: Introduction to Algorithms\nECON 701: Microeconomic Analysis I\nECON 605: Advanced Microeconomic Analysis\n\n\n\nSeattle University\n\nECON 4910: Causal Inference\nECON 4110: Applied Econometrics\nMATH 3411: Probability\nMATH 2340: Differential Equations\nMATH 4440: Applied Fourier Analysis\nMATH 2320: Linear Algebra\nMATH 4431: Intro to Real Analysis I\nMATH 4432: Intro to Real Analysis II\nECON 4590: Market Power and Response\nMATH 3910: Optimal Estimation and Control"
   },
   {
     "objectID": "license.html",
