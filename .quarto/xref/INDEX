@@ -1,53 +1,26 @@
 {
-  "about.qmd": {
-    "about.html": "95cce653"
-  },
   "index.qmd": {
-    "index.html": "5f8022a0"
-  },
-  "test_tab.qmd": {
-    "test_tab.html": "8b4a4505"
-  },
-  "test_about.qmd": {
-    "test_about.html": "4b354c63"
-  },
-  "projects.qmd": {
-    "projects.html": "0d3f217d"
-  },
-  "LICENSE.md": {
-    "LICENSE.html": "1e2ef814"
-  },
-  "docs/license.md": {
-    "license.html": "2a37fe17"
-  },
-  "LICENSE.qmd": {
-    "LICENSE.html": "518c364d"
-  },
-  "docs/license.qmd": {
-    "license.html": "f0b4e1f4"
-  },
-  "license.qmd": {
-    "license.html": "6f654997"
+    "index.html": "7d282648"
   },
   "projects/index.qmd": {
-    "index.html": "45c4877a"
-  },
-  "projects/monkeys/index.qmd": {
-    "index.html": "05fdd744"
-  },
-  "projects/kidney_certainty/index.qmd": {
-    "index.html": "752737e9"
-  },
-  "projects/gsl_dash/index.qmd": {
-    "index.html": "e48747d7"
-  },
-  "projects/gsl_dash_link/index.qmd": {
-    "index.html": "51cdc5de"
-  },
-  "projects/test_post/test_notebook.ipynb": {
-    "test_notebook.html": "1abf5801"
+    "index.html": "c41a2aae"
   },
   "courses.qmd": {
-    "courses.html": "5c6cf9c6"
+    "courses.html": "b58b9609"
+  },
+  "projects/quote-machine/index.qmd": {
+    "index.html": "b79f6ece"
+  },
+  "projects/kidney_certainty/index.qmd": {
+    "index.html": "a1a791db"
+  },
+  "projects/quote-machine/index.ipynb": {
+    "index.html": "bfcba708"
+  },
+  "projects.qmd": {
+    "projects.html": "bfeab66b"
+  },
+  "license.qmd": {
+    "license.html": "589fb858"
   }
 }

@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.liamgconnor.com/projects.html</loc>
-    <lastmod>2025-01-25T19:14:34.217Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.liamgconnor.com/projects/index.html</loc>
-    <lastmod>2025-02-05T03:15:02.602Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.liamgconnor.com/index.html</loc>
-    <lastmod>2025-02-08T18:32:47.481Z</lastmod>
+    <lastmod>2025-02-08T20:32:48.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.liamgconnor.com/courses.html</loc>
-    <lastmod>2025-02-08T18:42:00.986Z</lastmod>
+    <lastmod>2025-02-08T20:48:58.000Z</lastmod>
   </url>
   <url>
-    <loc>https://www.liamgconnor.com/license.html</loc>
-    <lastmod>2025-01-25T18:58:03.524Z</lastmod>
+    <loc>https://www.liamgconnor.com/projects/quote-machine/index.html</loc>
+    <lastmod>2026-01-20T00:05:42.358Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.liamgconnor.com/projects.html</loc>
+    <lastmod>2025-01-25T21:14:36.000Z</lastmod>
   </url>
   <url>
     <loc>https://www.liamgconnor.com/projects/kidney_certainty/index.html</loc>
-    <lastmod>2025-02-05T03:10:11.034Z</lastmod>
+    <lastmod>2025-02-05T05:10:12.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.liamgconnor.com/projects/index.html</loc>
+    <lastmod>2025-02-05T05:15:04.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.liamgconnor.com/license.html</loc>
+    <lastmod>2025-01-25T20:58:04.000Z</lastmod>
   </url>
 </urlset>
