@@ -4183,7 +4183,7 @@ font-style: inherit;">"""</span></span></code></pre></div></div>
 </ol>
 <p>To achieve these goals, I defined <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BYear%20label%7D=%20%5Clog%20(b-x)%20-%20%5Clog(b-c)">, where <img src="https://latex.codecogs.com/png.latex?c%20=%202025"> (the current year) is used to set the intercept, and <img src="https://latex.codecogs.com/png.latex?b"> is a hyperparameter that determines the steepness of the slope, which captures the relative weight of date differences in the present day vs.&nbsp;the far past. I <img src="https://latex.codecogs.com/png.latex?z">-normalized the converted target.<sup>2</sup></p>
 <ol start="4" type="1">
-<li><em>Weight quotes by author’s popularity and number of quotes</em>: There were two problems with the current data. First, the number of quotes per author varies by orders of magnitude. Second, I wanted “higher quality” authors (as measured by Wikipedia page views) to be upsampled. To achieve this, we set <img src="https://latex.codecogs.com/png.latex?w_%7B%5Ctext%7Bquote%7D%7D%20=%20%5Cfrac%7B%5Clog_2(%5Ctext%7Bauthor%20page%20views%7D)%7D%7B%5Ctext%7Btotal%20author%20quotes%7D%7D">. Authors with missing page view counts were assumed to be missing uniformly at random.</li>
+<li><em>Weight quotes by author’s popularity and number of quotes</em>: There were two problems with the current data. First, the number of quotes per author varies by orders of magnitude. Second, I wanted “higher quality” authors (as measured by Wikipedia page views) to be upsampled. To achieve this, I set <img src="https://latex.codecogs.com/png.latex?w_%7B%5Ctext%7Bquote%7D%7D%20=%20%5Cfrac%7B%5Clog_2(%5Ctext%7Bauthor%20page%20views%7D)%7D%7B%5Ctext%7Btotal%20author%20quotes%7D%7D">. Authors with missing page view counts were assumed to be missing uniformly at random.</li>
 </ol>
 <div id="f1d0c97e" class="cell">
 <details class="code-fold">
@@ -6452,7 +6452,7 @@ font-style: inherit;">=</span> wandb.init(project<span class="op" style="color: 
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"quote-machine"</span>, config<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"project-name"</span>, config<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>base_config)</span>
 <span id="cb8-393">    <span class="cf" style="color: #003B4F;
@@ -6514,9 +6514,55 @@ font-style: inherit;">finally</span>:</span>
 <h3 class="anchored" data-anchor-id="model-serving">Model Serving</h3>
 <p>I used <a href="https://www.gradio.app/">Gradio</a> to build a shareable model interface. The classification portion required inverting data transformations and presenting the data in a (hopefully) visually appealing way. I hosted the Gradio interface in a <a href="https://huggingface.co/spaces">Hugging Face Space</a>.</p>
 <p>I also wanted the model to be useful as a tool for finding relevant quotes. To do this, I first embedded all scraped quotes. Then, I used <a href="https://faiss.ai/">FAISS</a> to create an efficiently queryable index of the dense embeddings. For any entered quote, the interface retrieves the 100 most similar quotes by dot-product similarity. It then displays the five most similar quotes, filtered by the user’s selected “minimum author popularity,” as measured by the <img src="https://latex.codecogs.com/png.latex?%5Clog_2"> of the author’s Wikipedia views.</p>
-
-
 </section>
+</section>
+<section id="example-quotes" class="level2">
+<h2 class="anchored" data-anchor-id="example-quotes">Example Quotes</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Quote</th>
+<th>Author</th>
+<th>Birth Year</th>
+<th>Occupation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Virtue is debased by self-justification</td>
+<td>Voltaire</td>
+<td>1694</td>
+<td>Film &amp; Theater Writer, Literature &amp; Writing, Humanities, Law &amp; Jurisprudence</td>
+</tr>
+<tr class="even">
+<td>People like you to be something, preferably what they are.</td>
+<td>John Steinbeck</td>
+<td>1902</td>
+<td>Literature &amp; Writing, Film &amp; Theater Writer</td>
+</tr>
+<tr class="odd">
+<td>The severest justice may not always be the best policy</td>
+<td>Abraham Lincoln</td>
+<td>1809</td>
+<td>Law &amp; Jurisprudence, Literature &amp; Writing, Politics &amp; Government, Military</td>
+</tr>
+<tr class="even">
+<td>Allah is the Greatest. I’m just the greatest boxer.</td>
+<td>Muhammad Ali</td>
+<td>1942</td>
+<td>Literature &amp; Writing, Athletes &amp; Sports, Social Advocacy</td>
+</tr>
+<tr class="odd">
+<td>Tact is the ability to describe others as they see themselves</td>
+<td>Unknown, commonly misattributed</td>
+<td>~1925</td>
+<td>See <a href="https://quoteinvestigator.com/2021/03/06/tact-see/">Quote Investigator</a></td>
+</tr>
+</tbody>
+</table>
+<!-- |In so far as theories of mathematics speak about reality, they are not certain, and in so far as they are certain, they do not speak about reality. | -->
+
+
 </section>
 
 
