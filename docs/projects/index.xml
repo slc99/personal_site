@@ -20,27 +20,54 @@
 
 
 <p><br> <iframe src="https://slc99-quote-machine.hf.space" width="100%" height="800" style="box-shadow: 0 2px 8px var(--bs-body-color);"></iframe></p>
-<section id="tldr-courtesy-of-an-llm" class="level2">
-<h2 class="anchored" data-anchor-id="tldr-courtesy-of-an-llm">TLDR (courtesy of &lt;<code>an LLM</code>&gt;)</h2>
+<section id="project-tldr" class="level3">
+<h3 class="anchored" data-anchor-id="project-tldr">Project TLDR</h3>
 <p><strong>End-to-end NLP project</strong> that predicts author metadata from text.</p>
 <ul>
-<li><strong>Data Engineering</strong>: Built a custom scraper for Wikiquote &amp; Wikimedia to curate a high-quality dataset of quotes mapped to author metadata (birth year, occupation, gender).</li>
-<li><strong>Modeling</strong>: Fine-tuned a Transformer-based architecture (Sentence-BERT backbone + Custom PyTorch heads) for multi-task learning: simultaneous regression (birth year) and classification (occupation).</li>
+<li><strong>Data Engineering</strong>: Built a custom scraper for Wikiquote &amp; Wikimedia to curate a high-quality dataset of 200k+ quotes mapped to author metadata (birth year, occupation, gender).</li>
+<li><strong>Modeling</strong>: Fine-tuned a Transformer-based architecture (Sentence-BERT backbone &amp; custom PyTorch heads) for multi-task learning.</li>
 <li><strong>Deployment</strong>: Deployed a scalable inference API and interactive UI via Hugging Face Spaces &amp; Gradio, featuring vector-based semantic search using FAISS.</li>
 </ul>
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<ul>
-<li><strong>Goal</strong>: Create a deep learning model that can predict author characteristics from their quotes. This can help identify misattributed quotes.</li>
-<li><strong>Data</strong>: Quote data was scraped from <a href="https://en.wikiquote.org/wiki/Main_Page">Wikiquote</a> and author attributes were pulled from <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a>. After cleaning and filtering, the dataset contained 233k quotes from 11k authors. Author occupations were mapped into 19 categories, while author birth year was converted to a scaled target value.</li>
-<li><strong>Model</strong>
-<ul>
-<li><em>Model architecture</em>: The model architecture contains three components: a pretrained encoder model, shared linear layers, and author-attribute prediction MLP heads.</li>
-<li><em>Model training</em>: The model was trained on a cloud-based GPU instance (<a href="https://www.runpod.io/">Runpod</a>). Metrics were tracked using <a href="https://wandb.ai/">Weights &amp; Biases</a>.</li>
-<li><em>Model hosting</em>: The model is presented with Gradio and hosted on a Hugging Face Space. Quote similarity, as measured by L2 distance, is calculated with FAISS (Facebook AI Similarity Search).</li>
-</ul></li>
-</ul>
+<!-- 
+I believe that history can serve as a useful tool for understanding ourselves and our world. I think a useful starting point for the study of history is the understanding that historical people were not too dissimilar to ourselves and the people we know. I believe that it is far too easy to 'other' those who lived before us, which prevents us from learning from the past or drawing from it.
+
+Recognizing the humanity we share with historic figures is a necessary step in understanding history and learning from it. It is far too easy to 'other' past generations and assume that our current reality is different to the point of irrelevance. A good quote can knock away this misconception, by reminding us of our shared humanity. On the opposite side, a 
+
+Is it possible to tell a whether a quote is misattributed from the quote alone? Yes, Google it. 
+
+I believe that missattributed quotes 
+
+Historical figures are often mythicized
+
+History is often 
+
+It is hard to present history
+
+It is hard to learn from history if we do not
+
+It is easy to see historical people as fundamentally different from ourselves. It is hard to learn from history if we believe their lives were so different  -->
+<p>I love the website <a href="https://quoteinvestigator.com/">Quote Investigator</a>. Author Garson O’Toole has performed careful research to track down the true origin of over 2,000 user submitted quotes. While browsing the site, I noticed that many misattributed quotes had a similar style, while actual historical quotes were much more varied in word choice and phrasing.<sup>1</sup> I wanted to train a model along the lines of this intuition. Ideally, the model could serve as a first pass on a quote’s legitimacy. To accomplish this, I built a natural language processing model that predicts a quote author’s gender, birth year, and occupation. First, I web-scraped 230k quotes from Wikiquote and data on 12k authors from Wikimedia. Next, I built a PyTorch model using a BERT encoding backbone and multiple prediction heads. Then, I trained the model on remote GPUs and monitored performance with Weights and Biases. Finally, I deployed the model with an interactive UI via Gradio and Hugging Face Spaces.</p>
+<p>The first step in learning from history is to recognize our shared humanity with the past. A good quote can help bridge the gap to past generations and lead us to see the applicability of their experience. A misattributed quote can often do the opposite. It may further the mythicization of historical figures and, consequently, their irrelevance.</p>
+<!-- A misattributed quote, however, often does the opposite. 
+
+
+The best way to tell whether a quote is misattributed is to Google it.
+
+I wanted to see whether a deep learning model could make reasonable predictions about an author's birth year and occupation based on a singl 
+
+I wanted to build a model that predicts certain attributes of the author 
+
+
+
+In doing so, he humanizes the past. Learning from history requires acknowledging that humans have not changed much in the past few thousand years, and the challenges that historical figures faced are not too dissimilar to the ones we face today.  
+
+
+Many misattributed quotes work to mythologize historical figures by playing into established chara
+
+ Overcoming this misconception is necessary to learn from history. -->
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
@@ -529,18 +556,14 @@ background-color: null;
 font-style: inherit;"># parse and extract quotes</span></span>
 <span id="cb1-96">    headers <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> {</span>
-<span id="cb1-97">        <span class="st" style="color: #20794D;
+font-style: inherit;">=</span> {<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"User-Agent"</span>: <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"</span></span>
-<span id="cb1-98">    }</span>
-<span id="cb1-99">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">"header here"</span>}</span>
+<span id="cb1-97">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">try</span>:</span>
-<span id="cb1-100">        response <span class="op" style="color: #5E5E5E;
+<span id="cb1-98">        response <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> requests.get(url, headers<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -549,13 +572,13 @@ background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>)</span>
-<span id="cb1-101">    <span class="cf" style="color: #003B4F;
+<span id="cb1-99">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">Exception</span>:</span>
-<span id="cb1-102">        <span class="bu" style="color: null;
+<span id="cb1-100">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -566,14 +589,14 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span>)</span>
-<span id="cb1-103">        <span class="cf" style="color: #003B4F;
+<span id="cb1-101">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span>
-<span id="cb1-104"></span>
-<span id="cb1-105">    <span class="cf" style="color: #003B4F;
+<span id="cb1-102"></span>
+<span id="cb1-103">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> response.status_code <span class="op" style="color: #5E5E5E;
@@ -581,31 +604,31 @@ background-color: null;
 font-style: inherit;">!=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">200</span>:</span>
-<span id="cb1-106">        <span class="bu" style="color: null;
+<span id="cb1-104">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Failed to fetch the page."</span>)</span>
-<span id="cb1-107">        <span class="cf" style="color: #003B4F;
+<span id="cb1-105">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span></span>
-<span id="cb1-108"></span>
-<span id="cb1-109">    soup <span class="op" style="color: #5E5E5E;
+<span id="cb1-106"></span>
+<span id="cb1-107">    soup <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> BeautifulSoup(response.text, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"html.parser"</span>)</span>
-<span id="cb1-110"></span>
-<span id="cb1-111">    <span class="cf" style="color: #003B4F;
+<span id="cb1-108"></span>
+<span id="cb1-109">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> soup</span>
-<span id="cb1-112"></span>
-<span id="cb1-113"></span>
-<span id="cb1-114"><span class="kw" style="color: #003B4F;
+<span id="cb1-110"></span>
+<span id="cb1-111"></span>
+<span id="cb1-112"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> extract_textarea(soup: BeautifulSoup) <span class="op" style="color: #5E5E5E;
@@ -613,10 +636,10 @@ background-color: null;
 font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">str</span>:</span>
-<span id="cb1-115">    <span class="co" style="color: #5E5E5E;
+<span id="cb1-113">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Extracts the textarea content from the BeautifulSoup object."""</span></span>
-<span id="cb1-116">    textarea <span class="op" style="color: #5E5E5E;
+<span id="cb1-114">    textarea <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> soup.find(<span class="st" style="color: #20794D;
 background-color: null;
@@ -625,33 +648,33 @@ background-color: null;
 font-style: inherit;">"name"</span>: <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"wpTextbox1"</span>})</span>
-<span id="cb1-117"></span>
-<span id="cb1-118">    <span class="cf" style="color: #003B4F;
+<span id="cb1-115"></span>
+<span id="cb1-116">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">not</span> textarea:</span>
-<span id="cb1-119">        <span class="bu" style="color: null;
+<span id="cb1-117">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Couldn't find the textarea."</span>)</span>
-<span id="cb1-120">        <span class="cf" style="color: #003B4F;
+<span id="cb1-118">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">""</span></span>
-<span id="cb1-121"></span>
-<span id="cb1-122">    <span class="cf" style="color: #003B4F;
+<span id="cb1-119"></span>
+<span id="cb1-120">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> textarea.text</span>
-<span id="cb1-123"></span>
-<span id="cb1-124"></span>
-<span id="cb1-125"><span class="kw" style="color: #003B4F;
+<span id="cb1-121"></span>
+<span id="cb1-122"></span>
+<span id="cb1-123"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">def</span> extract_wikimedia_id(soup: BeautifulSoup) <span class="op" style="color: #5E5E5E;
@@ -659,13 +682,13 @@ background-color: null;
 font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">str</span>:</span>
-<span id="cb1-126">    <span class="co" style="color: #5E5E5E;
+<span id="cb1-124">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""Extracts the Wikimedia ID from the soup object."""</span></span>
-<span id="cb1-127">    <span class="co" style="color: #5E5E5E;
+<span id="cb1-125">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Find the &lt;a&gt; tag with the desired href</span></span>
-<span id="cb1-128">    link <span class="op" style="color: #5E5E5E;
+<span id="cb1-126">    link <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> soup.find(<span class="st" style="color: #20794D;
 background-color: null;
@@ -674,15 +697,15 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"extiw wb-entity-link external"</span>)</span>
-<span id="cb1-129">    <span class="co" style="color: #5E5E5E;
+<span id="cb1-127">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Extract the Q-number from the href attribute</span></span>
-<span id="cb1-130">    q_number <span class="op" style="color: #5E5E5E;
+<span id="cb1-128">    q_number <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">""</span></span>
-<span id="cb1-131">    <span class="cf" style="color: #003B4F;
+<span id="cb1-129">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> link <span class="kw" style="color: #003B4F;
@@ -694,12 +717,12 @@ font-style: inherit;">"href"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> link.attrs:</span>
-<span id="cb1-132">        href <span class="op" style="color: #5E5E5E;
+<span id="cb1-130">        href <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> link[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"href"</span>]</span>
-<span id="cb1-133">        q_number <span class="op" style="color: #5E5E5E;
+<span id="cb1-131">        q_number <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> href.split(<span class="st" style="color: #20794D;
 background-color: null;
@@ -710,27 +733,27 @@ background-color: null;
 font-style: inherit;">1</span>]  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Extract the last part of the URL</span></span>
-<span id="cb1-134">    <span class="cf" style="color: #003B4F;
+<span id="cb1-132">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> q_number</span>
-<span id="cb1-135"></span>
-<span id="cb1-136"></span>
-<span id="cb1-137">output_csv <span class="op" style="color: #5E5E5E;
+<span id="cb1-133"></span>
+<span id="cb1-134"></span>
+<span id="cb1-135">output_csv <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Path(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"data/scraped_data/wikiquotes_scraped.csv"</span>)</span>
-<span id="cb1-138">seen_names <span class="op" style="color: #5E5E5E;
+<span id="cb1-136">seen_names <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span>()</span>
-<span id="cb1-139"></span>
-<span id="cb1-140"><span class="co" style="color: #5E5E5E;
+<span id="cb1-137"></span>
+<span id="cb1-138"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># This loop was necessary to resume scraping after interruptions</span></span>
-<span id="cb1-141"><span class="cf" style="color: #003B4F;
+<span id="cb1-139"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">while</span> <span class="bu" style="color: null;
@@ -744,29 +767,29 @@ background-color: null;
 font-style: inherit;">&lt;</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">len</span>(names):</span>
-<span id="cb1-142">    <span class="co" style="color: #5E5E5E;
+<span id="cb1-140">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Check if the file exists to determine whether to write the header</span></span>
-<span id="cb1-143">    file_exists <span class="op" style="color: #5E5E5E;
+<span id="cb1-141">    file_exists <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> os.path.isfile(output_csv)</span>
-<span id="cb1-144"></span>
-<span id="cb1-145">    <span class="cf" style="color: #003B4F;
+<span id="cb1-142"></span>
+<span id="cb1-143">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> file_exists:</span>
-<span id="cb1-146">        scraped_data <span class="op" style="color: #5E5E5E;
+<span id="cb1-144">        scraped_data <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> pd.read_csv(output_csv, encoding<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"utf-8"</span>)</span>
-<span id="cb1-147">        seen_names.update(scraped_data[<span class="st" style="color: #20794D;
+<span id="cb1-145">        seen_names.update(scraped_data[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"name"</span>].tolist())</span>
-<span id="cb1-148"></span>
-<span id="cb1-149">    <span class="cf" style="color: #003B4F;
+<span id="cb1-146"></span>
+<span id="cb1-147">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">with</span> <span class="bu" style="color: null;
@@ -784,7 +807,7 @@ background-color: null;
 font-style: inherit;">"utf-8"</span>) <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> csvfile:</span>
-<span id="cb1-150">        fieldnames <span class="op" style="color: #5E5E5E;
+<span id="cb1-148">        fieldnames <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
 background-color: null;
@@ -793,23 +816,23 @@ background-color: null;
 font-style: inherit;">"wikimedia_id"</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"raw_text"</span>]</span>
-<span id="cb1-151">        writer <span class="op" style="color: #5E5E5E;
+<span id="cb1-149">        writer <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> csv.DictWriter(csvfile, fieldnames<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>fieldnames, quoting<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>csv.QUOTE_ALL)</span>
-<span id="cb1-152">        <span class="cf" style="color: #003B4F;
+<span id="cb1-150">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">not</span> file_exists:</span>
-<span id="cb1-153">            writer.writeheader()</span>
-<span id="cb1-154"></span>
-<span id="cb1-155">        <span class="cf" style="color: #003B4F;
+<span id="cb1-151">            writer.writeheader()</span>
+<span id="cb1-152"></span>
+<span id="cb1-153">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> name, url <span class="kw" style="color: #003B4F;
@@ -818,14 +841,14 @@ font-weight: bold;
 font-style: inherit;">in</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">zip</span>(names, urls):</span>
-<span id="cb1-156">            <span class="cf" style="color: #003B4F;
+<span id="cb1-154">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> name <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> seen_names:</span>
-<span id="cb1-157">                <span class="bu" style="color: null;
+<span id="cb1-155">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -836,11 +859,11 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;"> as it has already been processed."</span>)</span>
-<span id="cb1-158">                <span class="cf" style="color: #003B4F;
+<span id="cb1-156">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">continue</span></span>
-<span id="cb1-159">            <span class="bu" style="color: null;
+<span id="cb1-157">            <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -857,7 +880,7 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">..."</span>)</span>
-<span id="cb1-160">            <span class="cf" style="color: #003B4F;
+<span id="cb1-158">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
@@ -866,7 +889,7 @@ font-weight: bold;
 font-style: inherit;">not</span> url.startswith(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"https://en.wikiquote.org/w/index.php?title="</span>):</span>
-<span id="cb1-161">                <span class="bu" style="color: null;
+<span id="cb1-159">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -877,14 +900,14 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;"> as the URL is not an edit page."</span>)</span>
-<span id="cb1-162">                <span class="cf" style="color: #003B4F;
+<span id="cb1-160">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">continue</span></span>
-<span id="cb1-163">            soup <span class="op" style="color: #5E5E5E;
+<span id="cb1-161">            soup <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> query_wikiquote(url)</span>
-<span id="cb1-164">            <span class="cf" style="color: #003B4F;
+<span id="cb1-162">            <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> soup <span class="kw" style="color: #003B4F;
@@ -893,7 +916,7 @@ font-weight: bold;
 font-style: inherit;">is</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">None</span>:</span>
-<span id="cb1-165">                <span class="bu" style="color: null;
+<span id="cb1-163">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
 background-color: null;
@@ -904,50 +927,50 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;"> due to query failure."</span>)</span>
-<span id="cb1-166">                <span class="cf" style="color: #003B4F;
+<span id="cb1-164">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">continue</span></span>
-<span id="cb1-167">            wikimedia_id <span class="op" style="color: #5E5E5E;
+<span id="cb1-165">            wikimedia_id <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> extract_wikimedia_id(soup)</span>
-<span id="cb1-168">            raw_text <span class="op" style="color: #5E5E5E;
+<span id="cb1-166">            raw_text <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> extract_textarea(soup)</span>
-<span id="cb1-169">            writer.writerow(</span>
-<span id="cb1-170">                {<span class="st" style="color: #20794D;
+<span id="cb1-167">            writer.writerow(</span>
+<span id="cb1-168">                {<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"name"</span>: name, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"wikimedia_id"</span>: wikimedia_id, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"raw_text"</span>: raw_text},</span>
-<span id="cb1-171">            )</span>
-<span id="cb1-172">            time.sleep(<span class="fl" style="color: #AD0000;
+<span id="cb1-169">            )</span>
+<span id="cb1-170">            time.sleep(<span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.5</span>)</span>
-<span id="cb1-173"></span>
-<span id="cb1-174">results_df <span class="op" style="color: #5E5E5E;
+<span id="cb1-171"></span>
+<span id="cb1-172">results_df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> pd.read_csv(output_csv, encoding<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"utf-8"</span>)</span>
-<span id="cb1-175">wikimedia_ids <span class="op" style="color: #5E5E5E;
+<span id="cb1-173">wikimedia_ids <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">set</span>(results_df[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"wikimedia_id"</span>].tolist())</span>
-<span id="cb1-176"></span>
-<span id="cb1-177">wikimedia_id_path <span class="op" style="color: #5E5E5E;
+<span id="cb1-174"></span>
+<span id="cb1-175">wikimedia_id_path <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> Path(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"data/scraped_data/wikimedia_ids.txt"</span>)</span>
-<span id="cb1-178"><span class="cf" style="color: #003B4F;
+<span id="cb1-176"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">with</span> <span class="bu" style="color: null;
@@ -961,14 +984,14 @@ background-color: null;
 font-style: inherit;">"utf-8"</span>) <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> f:</span>
-<span id="cb1-179">    <span class="cf" style="color: #003B4F;
+<span id="cb1-177">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> wikimedia_id <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span> wikimedia_ids:</span>
-<span id="cb1-180">        f.write(<span class="ss" style="color: #20794D;
+<span id="cb1-178">        f.write(<span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -3077,7 +3100,7 @@ font-style: inherit;">"avg_monthly_pageviews"</span>])</span>
 </ol>
 <div id="f433cc31" class="cell">
 <details class="code-fold">
-<summary>Occupation mapping</summary>
+<summary>Occupation category mapping</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">occupation_mapping <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
@@ -3951,7 +3974,7 @@ font-style: inherit;">"Science &amp; Math"</span>,</span>
 </div>
 <div id="2275ecae" class="cell">
 <details class="code-fold">
-<summary>Categories, quote counts, weights</summary>
+<summary>Quote count and weight by occupation category</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">counts <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> defaultdict(<span class="bu" style="color: null;
@@ -4158,7 +4181,10 @@ font-style: inherit;">"""</span></span></code></pre></div></div>
 <li>Predict a value with a continuous domain, to enable encoding the continuous development of language. This ruled out binarized approaches.</li>
 </ol></li>
 </ol>
-<p>To achieve these goals, I defined <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BYear%20label%7D=%20%5Clog%20(b-x)%20-%20%5Clog(b-c)">, where <img src="https://latex.codecogs.com/png.latex?c%20=%202025"> (the current year) is used to set the intercept, and <img src="https://latex.codecogs.com/png.latex?b"> is a hyperparameter that determines the steepness of the slope, which captures the relative weight of date differences in the present day vs.&nbsp;the far past. I <img src="https://latex.codecogs.com/png.latex?z">-normalized the converted target. 4. <em>Weight quotes by author’s popularity and number of quotes</em>: There were two problems with the current data. First, the number of quotes per author varies by orders of magnitude. Second, I wanted “higher quality” authors (as measured by Wikipedia page views) to be upsampled. To achieve this, we set <img src="https://latex.codecogs.com/png.latex?w_%7B%5Ctext%7Bquote%7D%7D%20=%20%5Cfrac%7B%5Clog_2(%5Ctext%7Bauthor%20page%20views%7D)%7D%7B%5Ctext%7Btotal%20author%20quotes%7D%7D">. Authors with missing page view counts were assumed to be missing uniformly at random.</p>
+<p>To achieve these goals, I defined <img src="https://latex.codecogs.com/png.latex?%5Ctext%7BYear%20label%7D=%20%5Clog%20(b-x)%20-%20%5Clog(b-c)">, where <img src="https://latex.codecogs.com/png.latex?c%20=%202025"> (the current year) is used to set the intercept, and <img src="https://latex.codecogs.com/png.latex?b"> is a hyperparameter that determines the steepness of the slope, which captures the relative weight of date differences in the present day vs.&nbsp;the far past. I <img src="https://latex.codecogs.com/png.latex?z">-normalized the converted target.<sup>2</sup></p>
+<ol start="4" type="1">
+<li><em>Weight quotes by author’s popularity and number of quotes</em>: There were two problems with the current data. First, the number of quotes per author varies by orders of magnitude. Second, I wanted “higher quality” authors (as measured by Wikipedia page views) to be upsampled. To achieve this, we set <img src="https://latex.codecogs.com/png.latex?w_%7B%5Ctext%7Bquote%7D%7D%20=%20%5Cfrac%7B%5Clog_2(%5Ctext%7Bauthor%20page%20views%7D)%7D%7B%5Ctext%7Btotal%20author%20quotes%7D%7D">. Authors with missing page view counts were assumed to be missing uniformly at random.</li>
+</ol>
 <div id="f1d0c97e" class="cell">
 <details class="code-fold">
 <summary>Birth year target</summary>
@@ -4593,7 +4619,7 @@ font-style: inherit;">return</span> birth_pred, gender_pred, occupation_pred</sp
 <ul>
 <li><em>Gender loss</em>: The gender prediction head used binary cross-entropy (BCE). After empirical testing, the noisiness of the gender head was preventing the model from learning. To address this, I detached the embeddings before feeding them into the gender head, isolating gender backpropagation to the prediction head only.</li>
 <li><em>Occupation loss</em>: I tested two loss functions for the occupation head, BCE and focal loss. Loss was calculated per occupation category, scaled by the previously calculated weights, and then averaged. This prevented the model from ignoring less common occupations.</li>
-<li><em>Birth year loss</em>: Birth year loss was calculated using heteroskedastic negative log-likelihood (HNLL). As given below, HNLL requires the model to predict a normal distribution for each sample. <img src="https://latex.codecogs.com/png.latex?%20%5Cmathcal%7BL%7D(y,%20%5Cmu,%20%5Csigma%5E2)=%20%5Cfrac%7B1%7D%7B2%7D%5Clog%5C!%5Cleft(2%5Cpi%5Csigma%5E2%5Cright)%20+%20%5Cfrac%7B(y%20-%20%5Cmu)%5E2%7D%7B2%5Csigma%5E2%7D."> HNLL was chosen over MSE to reduce regression to the mean. HNLL also has the added benefit of including a measure of model uncertainty.</li>
+<li><em>Birth year loss</em>: Birth year loss was calculated using heteroskedastic negative log-likelihood (HNLL). HNLL requires the model to predict a normal distribution for each sample, allowing the model to strategically express uncertainty in its predictions. HNLL was chosen over MSE to reduce regression to the mean. HNLL also has the added benefit of including a measure of model uncertainty.</li>
 </ul>
 <p><u>Training Regime</u></p>
 <ul>
@@ -6474,13 +6500,13 @@ font-style: inherit;">finally</span>:</span>
 <p><u>Training Architecture</u></p>
 <ul>
 <li><em>GPU</em>: Model training was performed on cloud GPUs hosted on <a href="https://www.runpod.io/">Runpod</a>.</li>
-<li><em>Metric Reporting</em>: Metric reporting, hyperparameter sweeps, and training monitoring were all done using <a href="https://wandb.ai/">Weights &amp; Biases</a>.</li>
+<li><em>Metric Reporting</em>: Metric reporting, hyperparameter sweeps, and training monitoring were all done using <a href="https://wandb.ai/">Weights &amp; Biases</a>(WandB).</li>
 <li><em>Hyperparameter sweeps</em>: I performed initial testing by varying loss functions, optimizers, scheduling, and model architecture. After finding a more limited range of options, I performed a Bayesian sweep over a variety of hyperparameters. I varied batch size, dropout, add-on layer depth and width, the scale factor on occupation loss, loss functions, and the second-phase learning-rate multiplier.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://www.liamgconnor.com/projects/quote-machine/index_files/figure-html/863f6fda-1-wandb_sweep_screenshot.png" class="img-fluid figure-img"></p>
-<figcaption>wandb_sweep_screenshot.png</figcaption>
+<figcaption>Weights and Biases sweep dashboard graph</figcaption>
 </figure>
 </div>
 </section>
@@ -6493,7 +6519,19 @@ font-style: inherit;">finally</span>:</span>
 </section>
 </section>
 
- ]]></description>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I have a couple theories to explain this observation.</p>
+<ol type="1">
+<li>There is a specific style that both appeals to contemporary readers and sounds somewhat historical.</li>
+<li>Mid-century newspaper editors, who apparently had a rather loose relationship with the truth, are the source of many misattributed quotes. The similar sound of missattributed quotes may come from a similar sound of these editors.</li>
+</ol>
+↩︎</li>
+<li id="fn2"><p>I would take a different approach if I revisit this project. The current method greatly incentivizes away from predicting more recent years.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
   <category>natural language processing</category>
   <category>data scraping</category>
   <category>ML</category>
