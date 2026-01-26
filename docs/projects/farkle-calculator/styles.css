@@ -16,7 +16,7 @@
 .input-section {
     background: white;
     border-radius: 5px;
-    padding: 2rem;
+    padding: 1rem;
     margin-bottom: 0.5rem;
 }
 
@@ -117,7 +117,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 3rem;
+    gap: 1.5rem;
     margin-top: 1.5rem;
 }
 
@@ -210,6 +210,7 @@
     text-align: center;
     font-weight: 600;
     font-size: 1rem;
+    vertical-align: middle;
 }
 
 .moves-table tbody tr {
@@ -230,16 +231,18 @@
     padding: 1rem;
     text-align: center;
     font-size: 1rem;
+    vertical-align: middle;
 }
 
 .dice-cell {
-    font-size: 1.5rem;
+    font-size: 2rem !important;
     font-weight: bold;
     transition: opacity 0.3s ease;
+    padding: 0rem !important;
 }
 
 .keep-cell {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #48bb78;
 }
 
@@ -388,7 +391,8 @@
     }
     
     .dice-cell {
-        font-size: 1.1rem;
+        font-size: 1.4rem !important;
+        line-height: 1.2;
     }
     
     .score-cell {
@@ -472,7 +476,8 @@
     }
     
     .dice-cell {
-        font-size: 1rem;
+        font-size: 1.3rem !important;
+        line-height: 1.2;
     }
     
     .score-cell {

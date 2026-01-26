@@ -109,6 +109,11 @@
             
             <div class="controls-row">
                 <div class="score-input">
+                    <label for="dice-list">Dice List</label>
+                    <input type="text" id="dice-list" value="" maxlength="6" placeholder="000000">
+                </div>
+                
+                <div class="score-input">
                     <label for="current-score">Current Score</label>
                     <input type="number" id="current-score" value="0" min="0" max="19950" step="50">
                 </div>
@@ -145,15 +150,32 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all dice selects and lock checkboxes
     const diceSelects = [1, 2, 3, 4, 5, 6].map(i => document.getElementById(`die${i}`));
     const lockCheckboxes = [1, 2, 3, 4, 5, 6].map(i => document.getElementById(`lock${i}`));
+    const diceListInput = document.getElementById('dice-list');
     const currentScoreInput = document.getElementById('current-score');
     const movesTbody = document.getElementById('moves-tbody');
     const clearBtn = document.getElementById('clear-btn');
     
     let hasData = false; // Track if table has data rows
+    let farkleData = null; // Store loaded JSON data
+    let isUpdatingFromDiceList = false; // Prevent circular updates
+    
+    // Load the farkle-moves.json file
+    fetch('farkle-moves.json')
+        .then(response => response.json())
+        .then(data => {
+            farkleData = data;
+            console.log('Farkle moves data loaded successfully');
+        })
+        .catch(error => {
+            console.error('Error loading farkle moves data:', error);
+        });
     
     // Add event listeners to all dice and locks
     diceSelects.forEach((select, idx) => {
         select.addEventListener('change', () => {
+            if (!isUpdatingFromDiceList) {
+                updateDiceListFromSelects();
+            }
             updateCalculation();
         });
     });
@@ -170,6 +192,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    diceListInput.addEventListener('input', () => {
+        updateSelectsFromDiceList();
+    });
+    
     currentScoreInput.addEventListener('input', () => {
         validateAndFixScore();
         updateCalculation();
@@ -178,6 +204,36 @@ document.addEventListener('DOMContentLoaded', function() {
     currentScoreInput.addEventListener('blur', () => {
         validateAndFixScore();
     });
+    
+    function updateDiceListFromSelects() {
+        const diceString = diceSelects.map(s => s.value || '0').join('');
+        diceListInput.value = diceString;
+    }
+    
+    function updateSelectsFromDiceList() {
+        const value = diceListInput.value;
+        
+        // Validate input - only allow digits 0-6
+        const sanitized = value.replace(/[^0-6]/g, '');
+        if (sanitized !== value) {
+            diceListInput.value = sanitized;
+            return;
+        }
+        
+        // Pad with zeros if less than 6 digits
+        const padded = sanitized.padEnd(6, '0').substring(0, 6);
+        
+        // Update dice selects
+        isUpdatingFromDiceList = true;
+        padded.split('').forEach((digit, idx) => {
+            if (idx < diceSelects.length) {
+                diceSelects[idx].value = digit === '0' ? '' : digit;
+            }
+        });
+        isUpdatingFromDiceList = false;
+        
+        updateCalculation();
+    }
     
     function validateAndFixScore() {
         let value = parseInt(currentScoreInput.value) || 0;
@@ -207,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lockCheckboxes.forEach(checkbox => {
             checkbox.checked = false;
         });
+        diceListInput.value = '';
         currentScoreInput.value = 0;
         movesTbody.innerHTML = '<tr class="placeholder-row"><td colspan="4">Select your dice to see optimal moves...</td></tr>';
         hasData = false;
@@ -232,39 +289,100 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function calculateOptimalMoves(dice, locks, currentScore) {
-        // PLACEHOLDER: Replace with your actual algorithm
-        // This generates sample moves for demonstration
-        
-        const moves = [];
-        const availableDice = dice.filter((d, i) => d !== null && !locks[i]);
-        const lockedDice = dice.filter((d, i) => d !== null && locks[i]);
-        
-        if (availableDice.length === 0) {
+        // Check if data is loaded
+        if (!farkleData) {
             return [{
-                dice: lockedDice,
-                keep: '✓',
-                expectedScore: currentScore,
-                chanceOfBust: 0
+                dice: [],
+                keep: '—',
+                expectedScore: '—',
+                chanceOfBust: '—',
+                error: true,
+                message: 'Loading data...'
             }];
         }
         
-        // Generate some example moves (replace with actual logic)
-        const combinations = [
-            { keep: availableDice.slice(0, 2), score: 2000, bust: 39 },
-            { keep: availableDice.slice(0, 1), score: 1000, bust: 32 },
-            { keep: availableDice.filter(d => d === 1 || d === 5), score: 500, bust: 19 },
-            { keep: [], score: 480, bust: 14 }
-        ];
+        // Count dice by face value (1-6)
+        const diceCounts = [0, 0, 0, 0, 0, 0];
+        const lockedCounts = [0, 0, 0, 0, 0, 0];
         
-        combinations.forEach((combo, idx) => {
-            if (idx < 4) {
-                moves.push({
-                    dice: [...lockedDice, ...combo.keep],
-                    keep: combo.keep.length > 0 ? '✓' : '✗',
-                    expectedScore: combo.score,
-                    chanceOfBust: combo.bust
-                });
+        dice.forEach((die, idx) => {
+            if (die !== null) {
+                diceCounts[die - 1]++;
+                if (locks[idx]) {
+                    lockedCounts[die - 1]++;
+                }
             }
+        });
+        
+        // Create hand key: count of each die face (1-6)
+        const handKey = diceCounts.join('');
+        
+        // Create lock key: count of each locked die face (1-6)
+        const lockKey = lockedCounts.join('');
+        
+        // Get the score key (round to nearest 50)
+        const scoreKey = String(Math.round(currentScore / 50) * 50);
+        
+        console.log('Debug:', { handKey, lockKey, scoreKey, dice, locks, currentScore, diceCounts, lockedCounts });
+        
+        // Lookup in the JSON
+        if (!farkleData[handKey]) {
+            console.log('Hand key not found. Available keys sample:', Object.keys(farkleData).slice(0, 5));
+            return [{
+                dice: [],
+                keep: '—',
+                expectedScore: '—',
+                chanceOfBust: '—',
+                error: true,
+                message: 'Enter a valid combination'
+            }];
+        }
+        
+        if (!farkleData[handKey][lockKey]) {
+            console.log('Lock key not found. Available locks:', Object.keys(farkleData[handKey]).slice(0, 5));
+            return [{
+                dice: [],
+                keep: '—',
+                expectedScore: '—',
+                chanceOfBust: '—',
+                error: true,
+                message: 'Enter a valid combination'
+            }];
+        }
+        
+        if (!farkleData[handKey][lockKey][scoreKey]) {
+            console.log('Score key not found. Available scores:', Object.keys(farkleData[handKey][lockKey]).slice(0, 10));
+            return [{
+                dice: [],
+                keep: '—',
+                expectedScore: '—',
+                chanceOfBust: '—',
+                error: true,
+                message: 'Enter a valid combination'
+            }];
+        }
+        
+        // Get the moves from JSON
+        const jsonMoves = farkleData[handKey][lockKey][scoreKey];
+        
+        // Convert to our format
+        const moves = jsonMoves.map(move => {
+            // Parse the locked string to get dice to keep
+            const keepDice = [];
+            for (let i = 0; i < move.locked.length; i++) {
+                const count = parseInt(move.locked[i]);
+                const dieValue = i + 1; // Die faces are 1-6
+                for (let j = 0; j < count; j++) {
+                    keepDice.push(dieValue);
+                }
+            }
+            
+            return {
+                dice: keepDice,
+                keep: move.roll ? 'Roll' : 'Bank',
+                expectedScore: Math.round(move.ev),
+                chanceOfBust: Math.round(move.bust * 1000) / 10
+            };
         });
         
         return moves;
@@ -292,6 +410,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function createRows(moves) {
         movesTbody.innerHTML = '';
+        
+        // Check if it's an error message
+        if (moves.length === 1 && moves[0].error) {
+            const row = document.createElement('tr');
+            row.classList.add('placeholder-row');
+            row.innerHTML = `<td colspan="4">${moves[0].message}</td>`;
+            movesTbody.appendChild(row);
+            return;
+        }
         
         moves.forEach((move, idx) => {
             setTimeout(() => {
@@ -322,6 +449,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateRows(moves) {
+        // Check if it's an error message
+        if (moves.length === 1 && moves[0].error) {
+            movesTbody.innerHTML = `<tr class="placeholder-row"><td colspan="4">${moves[0].message}</td></tr>`;
+            hasData = false;
+            return;
+        }
+        
         const existingRows = movesTbody.querySelectorAll('tr:not(.placeholder-row)');
         
         // Update or create rows as needed
@@ -417,7 +551,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 current = end;
                 clearInterval(timer);
             }
-            element.textContent = Math.round(current) + suffix;
+            // Use toFixed(1) for percentages to show one decimal place
+            const displayValue = suffix === '%' ? current.toFixed(1) : Math.round(current);
+            element.textContent = displayValue + suffix;
         }, 16);
     }
     
