@@ -3,7 +3,8 @@
     "listing": "/projects/index.html",
     "items": [
       "/projects/kidney_certainty/index.html",
-      "/projects/quote-machine/index.html"
+      "/projects/quote-machine/index.html",
+      "/projects/farkle-calculator/index.html"
     ]
   }
 ]

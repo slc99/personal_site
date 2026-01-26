@@ -10,7 +10,660 @@
 <atom:link href="https://www.liamgconnor.com/projects/index.xml" rel="self" type="application/rss+xml"/>
 <description>Liam Connor&#39;s personal website.</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Mon, 19 Jan 2026 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 26 Jan 2026 07:00:00 GMT</lastBuildDate>
+<item>
+  <title>Farkle Calculator</title>
+  <link>https://www.liamgconnor.com/projects/farkle-calculator/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="farkle-dice-calculator" class="level1">
+<h1>Farkle Dice Calculator</h1>
+<p>Enter your six dice values and current score to find the optimal move!</p>
+<div id="farkle-calculator">
+    <div class="calculator-container">
+        <div class="input-section">
+            <h3 class="anchored" data-anchor-id="farkle-dice-calculator">🎲 Your Dice</h3>
+            <div class="dice-input-wrapper">
+                <div class="dice-labels">
+                    <div class="label-row">Dice:</div>
+                    <div class="label-row locked-row">Locked?</div>
+                </div>
+                <div class="dice-container">
+                    <div class="die-wrapper">
+                        <select id="die1" class="die-select">
+                            <option value="">❓</option>
+                            <option value="1">⚀</option>
+                            <option value="2">⚁</option>
+                            <option value="3">⚂</option>
+                            <option value="4">⚃</option>
+                            <option value="5">⚄</option>
+                            <option value="6">⚅</option>
+                        </select>
+                        <input type="checkbox" id="lock1" class="lock-checkbox">
+                    </div>
+                    <div class="die-wrapper">
+                        <select id="die2" class="die-select">
+                            <option value="">❓</option>
+                            <option value="1">⚀</option>
+                            <option value="2">⚁</option>
+                            <option value="3">⚂</option>
+                            <option value="4">⚃</option>
+                            <option value="5">⚄</option>
+                            <option value="6">⚅</option>
+                        </select>
+                        <input type="checkbox" id="lock2" class="lock-checkbox">
+                    </div>
+                    <div class="die-wrapper">
+                        <select id="die3" class="die-select">
+                            <option value="">❓</option>
+                            <option value="1">⚀</option>
+                            <option value="2">⚁</option>
+                            <option value="3">⚂</option>
+                            <option value="4">⚃</option>
+                            <option value="5">⚄</option>
+                            <option value="6">⚅</option>
+                        </select>
+                        <input type="checkbox" id="lock3" class="lock-checkbox">
+                    </div>
+                    <div class="die-wrapper">
+                        <select id="die4" class="die-select">
+                            <option value="">❓</option>
+                            <option value="1">⚀</option>
+                            <option value="2">⚁</option>
+                            <option value="3">⚂</option>
+                            <option value="4">⚃</option>
+                            <option value="5">⚄</option>
+                            <option value="6">⚅</option>
+                        </select>
+                        <input type="checkbox" id="lock4" class="lock-checkbox">
+                    </div>
+                    <div class="die-wrapper">
+                        <select id="die5" class="die-select">
+                            <option value="">❓</option>
+                            <option value="1">⚀</option>
+                            <option value="2">⚁</option>
+                            <option value="3">⚂</option>
+                            <option value="4">⚃</option>
+                            <option value="5">⚄</option>
+                            <option value="6">⚅</option>
+                        </select>
+                        <input type="checkbox" id="lock5" class="lock-checkbox">
+                    </div>
+                    <div class="die-wrapper">
+                        <select id="die6" class="die-select">
+                            <option value="">❓</option>
+                            <option value="1">⚀</option>
+                            <option value="2">⚁</option>
+                            <option value="3">⚂</option>
+                            <option value="4">⚃</option>
+                            <option value="5">⚄</option>
+                            <option value="6">⚅</option>
+                        </select>
+                        <input type="checkbox" id="lock6" class="lock-checkbox">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls-row">
+                <div class="score-input">
+                    <label for="current-score">Current Score</label>
+                    <input type="number" id="current-score" value="0" min="0" max="19950" step="50">
+                </div>
+                
+                <button id="clear-btn" class="clear-btn">Clear All</button>
+            </div>
+        </div>
+        
+        <div class="result-section">
+            <h3 class="anchored">🎯 Optimal Moves</h3>
+            
+<table id="moves-table" class="moves-table caption-top table">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Dice</th>
+<th data-quarto-table-cell-role="th">Keep</th>
+<th data-quarto-table-cell-role="th">Expected Score</th>
+<th data-quarto-table-cell-role="th">Chance of Bust</th>
+</tr>
+</thead>
+<tbody id="moves-tbody">
+<tr class="placeholder-row odd">
+<td colspan="4">Select your dice to see optimal moves...</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all dice selects and lock checkboxes
+    const diceSelects = [1, 2, 3, 4, 5, 6].map(i => document.getElementById(`die${i}`));
+    const lockCheckboxes = [1, 2, 3, 4, 5, 6].map(i => document.getElementById(`lock${i}`));
+    const currentScoreInput = document.getElementById('current-score');
+    const movesTbody = document.getElementById('moves-tbody');
+    const clearBtn = document.getElementById('clear-btn');
+    
+    let hasData = false; // Track if table has data rows
+    
+    // Add event listeners to all dice and locks
+    diceSelects.forEach((select, idx) => {
+        select.addEventListener('change', () => {
+            updateCalculation();
+        });
+    });
+    
+    lockCheckboxes.forEach((checkbox, idx) => {
+        checkbox.addEventListener('change', () => {
+            const dieSelect = diceSelects[idx];
+            if (checkbox.checked) {
+                dieSelect.classList.add('locked');
+            } else {
+                dieSelect.classList.remove('locked');
+            }
+            updateCalculation();
+        });
+    });
+    
+    currentScoreInput.addEventListener('input', () => {
+        validateAndFixScore();
+        updateCalculation();
+    });
+    
+    currentScoreInput.addEventListener('blur', () => {
+        validateAndFixScore();
+    });
+    
+    function validateAndFixScore() {
+        let value = parseInt(currentScoreInput.value) || 0;
+        
+        // Ensure it's not negative
+        if (value < 0) {
+            value = 0;
+        }
+        
+        // Ensure it's less than 20000
+        if (value >= 20000) {
+            value = 19950;
+        }
+        
+        // Round to nearest 50
+        value = Math.round(value / 50) * 50;
+        
+        currentScoreInput.value = value;
+    }
+    
+    // Clear button functionality
+    clearBtn.addEventListener('click', () => {
+        diceSelects.forEach((select, idx) => {
+            select.value = '';
+            select.classList.remove('locked');
+        });
+        lockCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        currentScoreInput.value = 0;
+        movesTbody.innerHTML = '<tr class="placeholder-row"><td colspan="4">Select your dice to see optimal moves...</td></tr>';
+        hasData = false;
+    });
+    
+    function updateCalculation() {
+        const dice = diceSelects.map(s => s.value ? parseInt(s.value) : null);
+        const locks = lockCheckboxes.map(cb => cb.checked);
+        const currentScore = parseInt(currentScoreInput.value) || 0;
+        
+        // Check if we have any dice selected
+        if (!dice.some(d => d !== null)) {
+            movesTbody.innerHTML = '<tr class="placeholder-row"><td colspan="4">Select your dice to see optimal moves...</td></tr>';
+            hasData = false;
+            return;
+        }
+        
+        // Calculate optimal moves
+        const moves = calculateOptimalMoves(dice, locks, currentScore);
+        
+        // Display moves with animation
+        displayMoves(moves);
+    }
+    
+    function calculateOptimalMoves(dice, locks, currentScore) {
+        // PLACEHOLDER: Replace with your actual algorithm
+        // This generates sample moves for demonstration
+        
+        const moves = [];
+        const availableDice = dice.filter((d, i) => d !== null && !locks[i]);
+        const lockedDice = dice.filter((d, i) => d !== null && locks[i]);
+        
+        if (availableDice.length === 0) {
+            return [{
+                dice: lockedDice,
+                keep: '✓',
+                expectedScore: currentScore,
+                chanceOfBust: 0
+            }];
+        }
+        
+        // Generate some example moves (replace with actual logic)
+        const combinations = [
+            { keep: availableDice.slice(0, 2), score: 2000, bust: 39 },
+            { keep: availableDice.slice(0, 1), score: 1000, bust: 32 },
+            { keep: availableDice.filter(d => d === 1 || d === 5), score: 500, bust: 19 },
+            { keep: [], score: 480, bust: 14 }
+        ];
+        
+        combinations.forEach((combo, idx) => {
+            if (idx < 4) {
+                moves.push({
+                    dice: [...lockedDice, ...combo.keep],
+                    keep: combo.keep.length > 0 ? '✓' : '✗',
+                    expectedScore: combo.score,
+                    chanceOfBust: combo.bust
+                });
+            }
+        });
+        
+        return moves;
+    }
+    
+    function displayMoves(moves) {
+        const isFirstTime = !hasData;
+        
+        if (isFirstTime) {
+            // First time showing data - fade out placeholder, then show data
+            const existingRows = movesTbody.querySelectorAll('tr');
+            existingRows.forEach(row => {
+                row.classList.add('fade-out');
+            });
+            
+            setTimeout(() => {
+                createRows(moves);
+                hasData = true;
+            }, 200);
+        } else {
+            // Update existing rows without collapsing table
+            updateRows(moves);
+        }
+    }
+    
+    function createRows(moves) {
+        movesTbody.innerHTML = '';
+        
+        moves.forEach((move, idx) => {
+            setTimeout(() => {
+                const row = document.createElement('tr');
+                row.classList.add('move-row', 'fade-in');
+                
+                const diceEmojis = move.dice.map(d => getDieEmoji(d)).join(' ');
+                
+                row.innerHTML = `
+                    <td class="dice-cell">${diceEmojis || '—'}</td>
+                    <td class="keep-cell">${move.keep}</td>
+                    <td class="score-cell" data-value="${move.expectedScore}">
+                        <span class="number-animate">${move.expectedScore}</span>
+                    </td>
+                    <td class="bust-cell" data-value="${move.chanceOfBust}">
+                        <span class="number-animate">${move.chanceOfBust}%</span>
+                    </td>
+                `;
+                
+                movesTbody.appendChild(row);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    animateNumbers(row);
+                }, 50);
+            }, idx * 100);
+        });
+    }
+    
+    function updateRows(moves) {
+        const existingRows = movesTbody.querySelectorAll('tr:not(.placeholder-row)');
+        
+        // Update or create rows as needed
+        moves.forEach((move, idx) => {
+            const diceEmojis = move.dice.map(d => getDieEmoji(d)).join(' ');
+            
+            if (idx < existingRows.length) {
+                // Update existing row
+                const row = existingRows[idx];
+                const diceCell = row.querySelector('.dice-cell');
+                const keepCell = row.querySelector('.keep-cell');
+                const scoreCell = row.querySelector('.score-cell');
+                const bustCell = row.querySelector('.bust-cell');
+                
+                // Update content with smooth transitions
+                if (diceCell.textContent !== (diceEmojis || '—')) {
+                    diceCell.style.opacity = '0.5';
+                    setTimeout(() => {
+                        diceCell.textContent = diceEmojis || '—';
+                        diceCell.style.opacity = '1';
+                    }, 150);
+                }
+                
+                if (keepCell.textContent !== move.keep) {
+                    keepCell.textContent = move.keep;
+                }
+                
+                // Animate numbers if they changed
+                const oldScore = parseInt(scoreCell.dataset.value);
+                const oldBust = parseInt(bustCell.dataset.value);
+                
+                if (oldScore !== move.expectedScore || oldBust !== move.chanceOfBust) {
+                    scoreCell.dataset.value = move.expectedScore;
+                    bustCell.dataset.value = move.chanceOfBust;
+                    
+                    animateValue(scoreCell.querySelector('.number-animate'), oldScore, move.expectedScore, 500);
+                    animateValue(bustCell.querySelector('.number-animate'), oldBust, move.chanceOfBust, 500, '%');
+                }
+            } else {
+                // Create new row if we have more moves than existing rows
+                const row = document.createElement('tr');
+                row.classList.add('move-row', 'fade-in');
+                
+                row.innerHTML = `
+                    <td class="dice-cell">${diceEmojis || '—'}</td>
+                    <td class="keep-cell">${move.keep}</td>
+                    <td class="score-cell" data-value="${move.expectedScore}">
+                        <span class="number-animate">${move.expectedScore}</span>
+                    </td>
+                    <td class="bust-cell" data-value="${move.chanceOfBust}">
+                        <span class="number-animate">${move.chanceOfBust}%</span>
+                    </td>
+                `;
+                
+                movesTbody.appendChild(row);
+                
+                setTimeout(() => {
+                    animateNumbers(row);
+                }, 50);
+            }
+        });
+        
+        // Remove extra rows if we have fewer moves
+        for (let i = moves.length; i < existingRows.length; i++) {
+            existingRows[i].classList.add('fade-out');
+            setTimeout(() => {
+                if (existingRows[i].parentNode) {
+                    existingRows[i].remove();
+                }
+            }, 300);
+        }
+    }
+    
+    function animateNumbers(row) {
+        const scoreCell = row.querySelector('.score-cell .number-animate');
+        const bustCell = row.querySelector('.bust-cell .number-animate');
+        
+        const targetScore = parseInt(row.querySelector('.score-cell').dataset.value);
+        const targetBust = parseInt(row.querySelector('.bust-cell').dataset.value);
+        
+        animateValue(scoreCell, 0, targetScore, 500);
+        animateValue(bustCell, 0, targetBust, 500, '%');
+    }
+    
+    function animateValue(element, start, end, duration, suffix = '') {
+        const range = end - start;
+        const increment = range / (duration / 16);
+        let current = start;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                current = end;
+                clearInterval(timer);
+            }
+            element.textContent = Math.round(current) + suffix;
+        }, 16);
+    }
+    
+    function getDieEmoji(value) {
+        const emojiMap = {
+            1: '⚀',
+            2: '⚁',
+            3: '⚂',
+            4: '⚃',
+            5: '⚄',
+            6: '⚅'
+        };
+        return emojiMap[value] || '❓';
+    }
+});
+</script>
+<div id="ec1be81d" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Python calculation function (optional - can be used instead of JavaScript)</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># You can integrate your existing Farkle solver here</span></span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> calculate_optimal_farkle_move(dice, current_score):</span>
+<span id="cb1-5">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Calculate the optimal move in Farkle.</span></span>
+<span id="cb1-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    </span></span>
+<span id="cb1-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Parameters:</span></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - dice: list of 6 integers (1-6) representing the rolled dice</span></span>
+<span id="cb1-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - current_score: integer representing the player's current score</span></span>
+<span id="cb1-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    </span></span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    Returns:</span></span>
+<span id="cb1-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    - dict with 'keep_dice' (list of dice to keep) and 'score' (points earned)</span></span>
+<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">    """</span></span>
+<span id="cb1-15">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># </span><span class="al" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">TODO</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">: Replace this with your actual Farkle solver algorithm</span></span>
+<span id="cb1-16">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This is a placeholder implementation</span></span>
+<span id="cb1-17">    </span>
+<span id="cb1-18">    keep_dice <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb1-19">    score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb1-20">    </span>
+<span id="cb1-21">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Count occurrences</span></span>
+<span id="cb1-22">    <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> collections <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Counter</span>
+<span id="cb1-23">    counts <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Counter(dice)</span>
+<span id="cb1-24">    </span>
+<span id="cb1-25">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Check for scoring combinations</span></span>
+<span id="cb1-26">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> value, count <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> counts.items():</span>
+<span id="cb1-27">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>:</span>
+<span id="cb1-28">            <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Three of a kind or more</span></span>
+<span id="cb1-29">            base_score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1000</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span> value <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span></span>
+<span id="cb1-30">            multiplier <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span> (count <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb1-31">            score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> base_score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> multiplier</span>
+<span id="cb1-32">            keep_dice.extend([value] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> count)</span>
+<span id="cb1-33">    </span>
+<span id="cb1-34">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># If no three of a kind, look for 1s and 5s</span></span>
+<span id="cb1-35">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> keep_dice:</span>
+<span id="cb1-36">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> die <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> dice:</span>
+<span id="cb1-37">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> die <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>:</span>
+<span id="cb1-38">                keep_dice.append(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-39">                score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span></span>
+<span id="cb1-40">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> die <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>:</span>
+<span id="cb1-41">                keep_dice.append(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>)</span>
+<span id="cb1-42">                score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span></span>
+<span id="cb1-43">    </span>
+<span id="cb1-44">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> {</span>
+<span id="cb1-45">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'keep_dice'</span>: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sorted</span>(keep_dice),</span>
+<span id="cb1-46">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'score'</span>: score,</span>
+<span id="cb1-47">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'new_total'</span>: current_score <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> score</span>
+<span id="cb1-48">    }</span>
+<span id="cb1-49"></span>
+<span id="cb1-50"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Example usage:</span></span>
+<span id="cb1-51"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># result = calculate_optimal_farkle_move([1, 2, 3, 4, 5, 6], 500)</span></span>
+<span id="cb1-52"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># print(result)</span></span></code></pre></div></div>
+</details>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>games</category>
+  <category>probability</category>
+  <category>algorithms</category>
+  <category>data structures</category>
+  <category>interactive</category>
+  <guid>https://www.liamgconnor.com/projects/farkle-calculator/</guid>
+  <pubDate>Mon, 26 Jan 2026 07:00:00 GMT</pubDate>
+  <media:content url="https://www.liamgconnor.com/projects/farkle-calculator/image.png" medium="image" type="image/png"/>
+</item>
 <item>
   <title>Quote Machine</title>
   <link>https://www.liamgconnor.com/projects/quote-machine/</link>
@@ -6582,6 +7235,7 @@ font-style: inherit;">finally</span>:</span>
   <category>data scraping</category>
   <category>ML</category>
   <category>AI</category>
+  <category>interactive</category>
   <guid>https://www.liamgconnor.com/projects/quote-machine/</guid>
   <pubDate>Mon, 19 Jan 2026 07:00:00 GMT</pubDate>
   <media:content url="https://www.liamgconnor.com/projects/quote-machine/image.png" medium="image" type="image/png" height="128" width="144"/>
@@ -6630,6 +7284,7 @@ font-style: inherit;">finally</span>:</span>
   <category>enviroment</category>
   <category>data visualization</category>
   <category>python</category>
+  <category>interactive</category>
   <guid>https://www.liamgconnor.com/</guid>
   <pubDate>Mon, 16 Jan 2023 07:00:00 GMT</pubDate>
   <media:content url="https://www.liamgconnor.com/resources/gsl_animation.gif" medium="image" type="image/gif"/>

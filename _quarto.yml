@@ -54,7 +54,6 @@ format:
     link-external-newwindow: true
     smooth-scroll: true
     highlight-style: gruvbox
-    page-layout: full
     self-contained: false
 
 

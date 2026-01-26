@@ -11,7 +11,7 @@ listing:
       image: resources/gsl_animation.gif
       date: "2023-01-16"
       reading-time: 24
-      categories: [great salt lake, policy, enviroment, data visualization, python]
+      categories: [great salt lake, policy, enviroment, data visualization, python, interactive]
       description: "The Great Salt Lake is drying up. Why should we care, and what can we do about it?"
       listing-order: 1
     - .

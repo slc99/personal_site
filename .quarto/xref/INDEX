@@ -22,5 +22,8 @@
   },
   "license.qmd": {
     "license.html": "589fb858"
+  },
+  "projects/farkle-calculator/index.ipynb": {
+    "index.html": "8db2f267"
   }
 }
