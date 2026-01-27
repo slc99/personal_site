@@ -354,6 +354,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const lockKey = lockedCounts.join('');
         
+        if (lockKey === '000000') {
+            lockedScoreInput.value = '';
+            lockedBustInput.value = '';
+            return;
+        }
+        
         if (farkleScoresData[lockKey]) {
             lockedScoreInput.value = farkleScoresData[lockKey].score;
             // Format bust probability as percentage with 1 decimal place
@@ -411,7 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 expectedScore: '—',
                 chanceOfBust: '—',
                 error: true,
-                message: 'Enter a valid combination'
+                message: 'Invalid locks / no valid new locks'
             }];
         }
         
@@ -423,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 expectedScore: '—',
                 chanceOfBust: '—',
                 error: true,
-                message: 'Enter a valid combination'
+                message: 'Invalid locks / no valid new locks'
             }];
         }
         
@@ -435,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 expectedScore: '—',
                 chanceOfBust: '—',
                 error: true,
-                message: 'Enter a valid combination'
+                message: 'Invalid locks / no valid new locks'
             }];
         }
         
