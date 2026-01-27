@@ -115,10 +115,19 @@
 
 .controls-row {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
     gap: 1.5rem;
     margin-top: 1.5rem;
+}
+
+.control-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1.5rem;
 }
 
 .score-input {
@@ -136,8 +145,8 @@
 
 .score-input input {
     width: 160px;
-    padding: 0.65rem;
-    font-size: 1.1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
     text-align: center;
     border: 2px solid #cbd5e0;
     border-radius: 8px;
@@ -150,8 +159,8 @@
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
-.clear-btn {
-    padding: 0.65rem 1.75rem;
+.clear-btn, .reset-btn, .roll-btn {
+    padding: 0.5rem 1rem;
     font-size: 1rem;
     font-weight: 600;
     color: #718096;
@@ -163,7 +172,17 @@
     align-self: flex-end;
 }
 
-.clear-btn:hover {
+.reset-btn {
+    color: #667eea;
+    border-color: #667eea;
+}
+
+.roll-btn {
+    color: #667eea;
+    border-color: #667eea;
+}
+
+.clear-btn:hover, .reset-btn:hover, .roll-btn:hover {
     background: #f7fafc;
     border-color: #a0aec0;
     color: #4a5568;
@@ -171,7 +190,13 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.clear-btn:active {
+.reset-btn:hover, .roll-btn:hover {
+    background: #eef2ff;
+    border-color: #667eea;
+    color: #5568d3;
+}
+
+.clear-btn:active, .reset-btn:active, .roll-btn:active {
     transform: translateY(0);
 }
 
@@ -451,19 +476,33 @@
         gap: 0.5rem;
         margin-top: 0.75rem;
     }
+
+    .control-group {
+        gap: 0.5rem;
+        justify-content: space-between;
+    }
+    
+    .score-input {
+        flex: 0 0 calc(50% - 0.25rem);
+        min-width: 0;
+        align-items: stretch;
+    }
     
     .score-input label {
         font-size: 0.85rem;
     }
     
     .score-input input {
+        width: 100%;
         padding: 0.4rem;
         font-size: 1rem;
     }
     
-    .clear-btn {
-        padding: 0.4rem 0.75rem;
+    .reset-btn, .roll-btn, .clear-btn {
+        flex: 0 0 calc(50% - 0.25rem);
+        padding: 0.4rem 0.4rem;
         font-size: 0.9rem;
+        align-self: auto;
     }
     
     .moves-table {
