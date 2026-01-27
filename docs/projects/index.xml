@@ -107,17 +107,29 @@
             <div class="controls-row">
                 <div class="control-group">
                     <div class="score-input">
-                        <label for="dice-list">Dice List</label>
-                        <input type="text" id="dice-list" value="" maxlength="6" placeholder="000000">
+                        <label for="locked-score">Locked Score</label>
+                        <input type="text" id="locked-score" value="" readonly="" style="background-color: #f0f0f0;">
                     </div>
-                    
+                
                     <div class="score-input">
-                        <label for="current-score">Current Score</label>
-                        <input type="number" id="current-score" value="0" min="0" max="19950" step="50">
+                        <label for="locked-bust">Locked Bust</label>
+                        <input type="text" id="locked-bust" value="" readonly="" style="background-color: #f0f0f0;">
                     </div>
                 </div>
 
                 <div class="control-group">
+                    <div class="score-input">
+                        <label for="dice-list">Dice</label>
+                        <input type="text" id="dice-list" value="" maxlength="6" placeholder="000000">
+                    </div>
+                    
+                    <div class="score-input">
+                        <label for="current-score">Prev. Score</label>
+                        <input type="number" id="current-score" value="0" min="0" max="9950" step="50">
+                    </div>
+                </div>
+
+                <div class="control-group button-row">
                     <button id="roll-unlocked-btn" class="roll-btn">Roll Unlocked</button>
                     <button id="clear-btn" class="clear-btn">Clear All</button>
                 </div>
@@ -154,12 +166,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const lockCheckboxes = [1, 2, 3, 4, 5, 6].map(i => document.getElementById(`lock${i}`));
     const diceListInput = document.getElementById('dice-list');
     const currentScoreInput = document.getElementById('current-score');
+    const lockedScoreInput = document.getElementById('locked-score');
+    const lockedBustInput = document.getElementById('locked-bust');
     const movesTbody = document.getElementById('moves-tbody');
     const rollUnlockedBtn = document.getElementById('roll-unlocked-btn');
     const clearBtn = document.getElementById('clear-btn');
     
     let hasData = false; // Track if table has data rows
     let farkleData = null; // Store loaded JSON data
+    let farkleScoresData = null; // Store loaded scores JSON data
     let isUpdatingFromDiceList = false; // Prevent circular updates
     
     // Load the farkle-moves.json file
@@ -171,6 +186,19 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error loading farkle moves data:', error);
+        });
+
+    // Load the farkle-scores.json file
+    fetch('farkle-scores.json')
+        .then(response => response.json())
+        .then(data => {
+            farkleScoresData = data;
+            console.log('Farkle scores data loaded successfully');
+            // Trigger update in case dice are already selected
+            updateCalculation();
+        })
+        .catch(error => {
+            console.error('Error loading farkle scores data:', error);
         });
     
     // Add event listeners to all dice and locks
@@ -200,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     currentScoreInput.addEventListener('input', () => {
-        validateAndFixScore();
+        // validateAndFixScore();
         updateCalculation();
     });
     
@@ -282,6 +310,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         diceListInput.value = '';
         currentScoreInput.value = 0;
+        lockedScoreInput.value = '';
+        lockedBustInput.value = '';
         movesTbody.innerHTML = '<tr class="placeholder-row"><td colspan="4">Select your dice to see optimal moves...</td></tr>';
         hasData = false;
     });
@@ -290,6 +320,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const dice = diceSelects.map(s => s.value ? parseInt(s.value) : null);
         const locks = lockCheckboxes.map(cb => cb.checked);
         const currentScore = parseInt(currentScoreInput.value) || 0;
+
+        // Calculate and update locked stats
+        updateLockedStats(dice, locks);
         
         // Check if we have any dice selected
         if (!dice.some(d => d !== null)) {
@@ -303,6 +336,33 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Display moves with animation
         displayMoves(moves);
+    }
+
+    function updateLockedStats(dice, locks) {
+        if (!farkleScoresData) {
+            lockedScoreInput.value = '';
+            lockedBustInput.value = '';
+            return;
+        }
+
+        const lockedCounts = [0, 0, 0, 0, 0, 0];
+        dice.forEach((die, idx) => {
+            if (die !== null && locks[idx]) {
+                lockedCounts[die - 1]++;
+            }
+        });
+        
+        const lockKey = lockedCounts.join('');
+        
+        if (farkleScoresData[lockKey]) {
+            lockedScoreInput.value = farkleScoresData[lockKey].score;
+            // Format bust probability as percentage with 1 decimal place
+            const bustProb = (farkleScoresData[lockKey].bust * 100).toFixed(1);
+            lockedBustInput.value = bustProb + '%';
+        } else {
+            lockedScoreInput.value = '';
+            lockedBustInput.value = '';
+        }
     }
     
     function calculateOptimalMoves(dice, locks, currentScore) {
@@ -511,7 +571,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Animate numbers if they changed
                 const oldScore = parseInt(scoreCell.dataset.value);
-                const oldBust = parseInt(bustCell.dataset.value);
+                const oldBust = parseFloat(bustCell.dataset.value);
                 
                 if (oldScore !== move.expectedScore || oldBust !== move.chanceOfBust) {
                     scoreCell.dataset.value = move.expectedScore;
@@ -560,13 +620,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const bustCell = row.querySelector('.bust-cell .number-animate');
         
         const targetScore = parseInt(row.querySelector('.score-cell').dataset.value);
-        const targetBust = parseInt(row.querySelector('.bust-cell').dataset.value);
+        const targetBust = parseFloat(row.querySelector('.bust-cell').dataset.value);
         
         animateValue(scoreCell, 0, targetScore, 500);
         animateValue(bustCell, 0, targetBust, 500, '%');
     }
     
     function animateValue(element, start, end, duration, suffix = '') {
+        if (start === end) {
+            const displayValue = suffix === '%' ? end.toFixed(1) : Math.round(end);
+            element.textContent = displayValue + suffix;
+            return;
+        }
+
         const range = end - start;
         const increment = range / (duration / 16);
         let current = start;

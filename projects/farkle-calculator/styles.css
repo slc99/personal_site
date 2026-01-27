@@ -16,7 +16,7 @@
 .input-section {
     background: white;
     border-radius: 5px;
-    padding: 1rem;
+    padding: 2rem;
     margin-bottom: 0.5rem;
 }
 
@@ -118,7 +118,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 1.5rem;
 }
 
@@ -127,7 +127,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .score-input {
@@ -144,13 +144,17 @@
 }
 
 .score-input input {
-    width: 160px;
+    width: 120px;
     padding: 0.5rem;
     font-size: 1rem;
     text-align: center;
     border: 2px solid #cbd5e0;
     border-radius: 8px;
     transition: all 0.3s ease;
+}
+
+#dice-list {
+    font-family: monospace;
 }
 
 .score-input input:focus {
@@ -480,6 +484,12 @@
     .control-group {
         gap: 0.5rem;
         justify-content: space-between;
+        align-items: stretch;
+    }    
+    .control-group.button-row {
+        gap: 0.5rem;
+        justify-content: space-between;
+        height: 40px;
     }
     
     .score-input {
