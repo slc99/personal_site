@@ -6,10 +6,12 @@ format: html
 
 ### Duke Univeristy
 - COMPSCI 590: Theory of Deep Learning
+- COMPSCI 590: Reinforcement Learning
 - COMPSCI 571: Probabilistic Machine Learning
 - COMPSCI 572: Natural Language Processing
 - COMPSCI 531: Introduction to Algorithms
-- ECON 701: Microeconomic Analysis I
+- ECON 701: Microeconomic Analysis I (Phd)
+- ECON 703: Econometrics I (PhD)
 - ECON 605: Advanced Microeconomic Analysis
 
 ### Seattle University
