@@ -1,0 +1,22 @@
+---
+title: "An Interpretable AI Model to Support CT-Detected Lung Nodule Classification"
+date: "2026-02-26"
+categories: [interpretability, deep learning, ai, lung]
+description: "A prototypical parts model in 3D."
+reading-time: 22
+image: feature.png
+listing-order: 1
+
+---
+<style>
+  .pdf-frame {
+    margin-top: 1rem; 
+    width: 100%;
+    aspect-ratio: 8.5/11;
+    border: 2px  solid var(--bs-body-color); 
+    border-radius: 2px; 
+  }
+</style>
+</br>
+
+<iframe src="Lung_Nodule_Interpretable_Malignancy_Classification-5.pdf" class="pdf-frame"></iframe>
