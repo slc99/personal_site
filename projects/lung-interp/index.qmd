@@ -5,7 +5,7 @@ categories: [interpretability, deep learning, ai, lung]
 description: "A prototypical parts model in 3D."
 reading-time: 22
 image: image.png
-
+listing-order: 1
 ---
 <style>
   .pdf-frame {
