@@ -2,7 +2,7 @@ name: Publish Quarto site
 
 on:
   push:
-    branches: [main]   # or master if your repo uses that
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -13,6 +13,10 @@ jobs:
       contents: read
       pages: write
       id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repo
@@ -27,7 +31,8 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site   # default Quarto output folder
+          path: _site
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
