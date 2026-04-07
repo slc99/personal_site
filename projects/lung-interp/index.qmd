@@ -1,10 +1,10 @@
 ---
 title: "An Interpretable AI Model to Support CT-Detected Lung Nodule Classification"
 date: "2026-02-26"
-categories: [interpretability, deep learning, ai, lung]
-description: "A prototypical parts model in 3D."
+categories: [interpretability, deep learning, AI, lung]
+description: "Building clinician trust with interpretable AI systems"
 reading-time: 22
-image: image.png
+image: AdobeExpress-global_0-ezgif.com-optimize.gif
 listing-order: 1
 ---
 <style>
